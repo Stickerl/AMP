@@ -3,7 +3,7 @@ use IEEE.std_logic_1164.all;
 use IEEE.numeric_std.all;
 use work.Global_params.all;
 
-entity hdlc_decoer is
+entity hdlc_decoder is
 port (
     clk50_i             :   in  std_ulogic; -- 50MHz external clk input
     data_i              :   in  std_ulogic_vector(7 downto 0);
@@ -14,11 +14,11 @@ port (
     fifo_wr_rq_o        :   out std_ulogic;
     word_o              :   out std_ulogic_vector(15 downto 0)
 );
-end hdlc_decoer;
+end hdlc_decoder;
 
-architecture hdlc_protocol of hdlc_decoer is
+architecture hdlc_protocol of hdlc_decoder is
 
-    signal escape_s     :   std_ulogic :=0;
+    signal escape_s     :   std_ulogic :='0';
     signal byte_cnt_s   :   unsigned(hdlc_cnt_size_c downto 0);
     signal word_s       :   std_ulogic_vector(15 downto 0);    
 
@@ -51,13 +51,13 @@ begin
                 else
                     space_left_o    <= x"FFFF";
                     uart_tx_en_o    <= '0';
-                    escape_s <= '0';
+                    escape_s        <= '0';
                     word_s(15 downto 8) <= word_s(7 downto 0);
                     
                     if escape_s = '1' then
-                        word_s <= data_i xor x"20"; -- invert bit5 (HDLC)
+                        word_s(7 downto 0) <= data_i xor x"20"; -- invert bit5 (HDLC)
                     else
-                        word_s <= data_i;
+                        word_s(7 downto 0) <= data_i;
                     end if;
                     
                     -- assert FIFO write request, because word (sample) is complete

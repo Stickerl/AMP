@@ -72,7 +72,7 @@ architecture Sigma_delta_modulator of Sigma_delta_main is
     signal tx_done_s        : std_ulogic;
     signal tx_busy_s        : std_ulogic;
     signal uart_tx_en_s     : std_ulogic;
-    signal uart_tx_byte_s   : std_ulogic(7 downto 0);
+    signal uart_tx_byte_s   : std_ulogic_vector(7 downto 0);
     
     -- ##############################################
     -- # signals related to debugging bus
@@ -180,7 +180,7 @@ begin
     
     audio_fifo : entity work.AudioStreamFifo port map(
 		aclr	   => reset_n_i,
-		data	   => word_s,
+		data	   => std_logic_vector(word_s),
 		rdclk	   => sample_clk_s,
 		rdreq      => '1',
 		wrclk	   => sys_clk_s,
@@ -193,18 +193,18 @@ begin
     uart_tx : entity work.UART_TX port map(
         i_Clk       => sys_clk_s,
         i_TX_DV     => uart_tx_en_s,
-        i_TX_Byte   => uart_tx_byte,
+        i_TX_Byte   => std_logic_vector(uart_tx_byte_s),
         o_TX_Active => tx_busy_s,
         o_TX_Serial => uart_tx_o,
         o_TX_Done   => tx_done_s
     );
     
-    uart_tx_driver : entity work.tx_driver port(
+    uart_tx_driver : entity work.tx_driver port map(
         clk_i           => sys_clk_s,
-        space_left_i    => std_ulogic_vector(space_left_s),
+        space_left_i    => space_left_s,
         uart_busy_i     => tx_busy_s,
         uart_tx_en_o    => uart_tx_en_s,
-        uart_tx_byte_o  => uart_tx_byte
+        uart_tx_byte_o  => uart_tx_byte_s
     );
     
     -- ##############################################
