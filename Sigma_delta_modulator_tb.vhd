@@ -1,0 +1,87 @@
+--library IEEE;
+--library altera_mf;
+--use altera_mf.altera_mf_components.all;
+--use IEEE.std_logic_1164.all;
+--use IEEE.numeric_std.all;
+--use work.Global_params.all;
+--
+--entity Sigma_delta_modulator_tb is
+--end entity;
+--
+--architecture testbench of Sigma_delta_modulator_tb is
+--    signal tb_clk50_s           :   std_ulogic;
+--    signal tb_use_sine_s        :   std_ulogic; -- choose between sine pattern (64 samples) or ramp (4 samples)
+--    signal tb_sd_i_s            :   std_ulogic :='0';
+--    signal tb_dbg_sdi_s         :   std_ulogic :='0';
+--    signal tb_reset_n_s         :   std_ulogic;
+--      
+--    signal tb_hs_s              :   std_ulogic;
+--    signal tb_ls_s              :   std_ulogic;
+--    signal tb_debug_s           :   std_ulogic;
+--     
+--    signal tb_sclk_o_s          :   std_ulogic;
+--    signal tb_dbg_sclk_o_s      :   std_ulogic;     
+--    signal tb_sd_o_s            :   std_ulogic;
+--    signal tb_dbg_sdo_s         :   std_ulogic;
+--    signal tb_cs_n_s            :   std_ulogic;
+--    signal tb_dbg_cs_n_s        :   std_ulogic;
+--    signal tb_led_s             :   std_ulogic_vector(7 downto 0) := x"00";
+--    signal tb_bit_str_raw_s     :   std_ulogic;
+--    signal tb_bit_str_raw_n_s   :   std_ulogic;
+--    signal tb_identifier_s      :   std_ulogic_vector(7 downto 0);
+--    signal tb_dbg_bus_s         :   std_ulogic_vector(15 downto 0);
+--    signal tb_dbg_clk_s         :   std_ulogic;
+--    
+--begin
+-- 
+--    gen_clk : process
+--	begin
+--		tb_clk50_s <= '0';
+--		wait for 10ns;
+--		tb_clk50_s <= '1';
+--		wait for 10ns;
+--	end process;
+--    
+--    main : process    
+--        procedure do_reset is
+--        begin
+--            tb_reset_n_s <= '0';
+--            wait for 100ns;
+--            tb_reset_n_s <= '1';
+--        end do_reset;
+--        
+--        procedure run_test is
+--        begin
+--            do_reset; -- 100ns reset time
+--            wait for 70us; -- simulation should take about 70us
+--            do_reset;
+--        end run_test;
+--        
+--    begin
+--        run_test;
+--    end process;
+--    
+--    Main_Entity : entity work.Sigma_delta_main port map(
+--        clk50_i           =>   tb_clk50_s,
+--        use_sine_i        =>   '0',
+--        sd_i              =>   tb_sd_i_s,
+--        dbg_sdi_o         =>   tb_dbg_sdi_s,
+--        reset_n_i         =>   tb_reset_n_s,
+--          
+--        hs_o              =>   tb_hs_s,
+--        ls_o              =>   tb_ls_s,
+--        debug_o           =>   tb_debug_s,
+--         
+--        sclk_o            =>   tb_sclk_o_s,
+--        dbg_sclk_o        =>   tb_dbg_sclk_o_s,     
+--        sd_o              =>   tb_sd_o_s,
+--        dbg_sdo_o         =>   tb_dbg_sdo_s,
+--        cs_n_o            =>   tb_cs_n_s,
+--        dbg_cs_n_o        =>   tb_dbg_cs_n_s,
+--        led_o             =>   tb_led_s,
+--        bit_str_raw_o     =>   tb_bit_str_raw_s,
+--        bit_str_raw_n_o   =>   tb_bit_str_raw_n_s,
+--        identifier_o      =>   tb_identifier_s,
+--        dbg_bus_o         =>   tb_dbg_bus_s,
+--        dbg_clk_o         =>   tb_dbg_clk_s);
+--end testbench;

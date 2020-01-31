@@ -1,0 +1,499 @@
+m255
+K3
+13
+cModel Technology
+dC:\altera\13.0
+Edbginterface
+Z0 w1491149442
+Z1 DPx4 work 13 global_params 0 22 hfQ@WkLkPQ3QA^:f>m;1C1
+Z2 DPx4 ieee 11 numeric_std 0 22 O3PF8EB`?j9=z7KT`fn941
+Z3 DPx3 std 6 textio 0 22 5>J:;AW>W0[[dW0I6EN1Q0
+Z4 DPx4 ieee 14 std_logic_1164 0 22 5=aWaoGZSMWIcH0i^f`XF1
+Z5 dC:\Data\vhdl_projects\digital_amp\branches\Sigma-Delta_V3_1
+Z6 8C:/Data/vhdl_projects/digital_amp/branches/Sigma-Delta_V3_1/dbg_interface.vhd
+Z7 FC:/Data/vhdl_projects/digital_amp/branches/Sigma-Delta_V3_1/dbg_interface.vhd
+l0
+L6
+VMkJ2_?IONXCE<EmZdS85n1
+Z8 OV;C;10.1d;51
+32
+Z9 !s108 1491149854.036000
+Z10 !s90 -reportprogress|300|-work|work|-2002|-explicit|C:/Data/vhdl_projects/digital_amp/branches/Sigma-Delta_V3_1/dbg_interface.vhd|
+Z11 !s107 C:/Data/vhdl_projects/digital_amp/branches/Sigma-Delta_V3_1/dbg_interface.vhd|
+Z12 o-work work -2002 -explicit -O0
+Z13 tExplicit 1
+!s100 0;iH@jkHjnHO`JO^LI<:d3
+!i10b 1
+Amyrio
+R1
+R2
+R3
+R4
+Z14 DEx4 work 12 dbginterface 0 22 MkJ2_?IONXCE<EmZdS85n1
+l27
+L23
+VELlT^achD^ZnHCI@e3l053
+R8
+32
+R9
+R10
+R11
+R12
+R13
+!s100 gUdM5S=h^92M?mb?i>UeY1
+!i10b 1
+Edebugfifo
+Z15 w1491144954
+R3
+R4
+R5
+Z16 8C:/Data/vhdl_projects/digital_amp/branches/Sigma-Delta_V3_1/DebugFifo.vhd
+Z17 FC:/Data/vhdl_projects/digital_amp/branches/Sigma-Delta_V3_1/DebugFifo.vhd
+l0
+L42
+V>@k_Z[VE6bz3InlRX9PNm2
+R8
+32
+Z18 !s108 1491149854.145000
+Z19 !s90 -reportprogress|300|-work|work|-2002|-explicit|C:/Data/vhdl_projects/digital_amp/branches/Sigma-Delta_V3_1/DebugFifo.vhd|
+Z20 !s107 C:/Data/vhdl_projects/digital_amp/branches/Sigma-Delta_V3_1/DebugFifo.vhd|
+R12
+R13
+!s100 fFo_g:ZT:i1bacDzlc9kZ0
+!i10b 1
+Asyn
+R3
+R4
+Z21 DEx4 work 9 debugfifo 0 22 >@k_Z[VE6bz3InlRX9PNm2
+l101
+L60
+Vj0X<jHDR;RgXc<Ne`3Ba73
+R8
+32
+R18
+R19
+R20
+R12
+R13
+!s100 n9h0HgjgJcWRG[5fFP2e02
+!i10b 1
+Efeedfifo
+Z22 w1491149053
+R1
+R2
+R3
+R4
+R5
+Z23 8C:\Data\vhdl_projects\digital_amp\branches\Sigma-Delta_V3_1\feed_fifo.vhd
+Z24 FC:\Data\vhdl_projects\digital_amp\branches\Sigma-Delta_V3_1\feed_fifo.vhd
+l0
+L6
+V5gkE00F>zSz6Rz;=]ZFj_2
+R8
+32
+Z25 !s108 1491149854.239000
+Z26 !s90 -reportprogress|300|-work|work|-2002|-explicit|C:\Data\vhdl_projects\digital_amp\branches\Sigma-Delta_V3_1\feed_fifo.vhd|
+Z27 !s107 C:\Data\vhdl_projects\digital_amp\branches\Sigma-Delta_V3_1\feed_fifo.vhd|
+R12
+R13
+!s100 0GD[=Cc4e043n[Z3lZBK:3
+!i10b 1
+Aregister_slaughter
+Z28 DEx4 work 14 shadow_compare 0 22 R;VYYTU2`z>KISz30ai`12
+R1
+R2
+R3
+R4
+Z29 DEx4 work 8 feedfifo 0 22 5gkE00F>zSz6Rz;=]ZFj_2
+l27
+L23
+VcH:^H4M2=IM[ff`kb[=Ld3
+R8
+32
+R25
+R26
+R27
+R12
+R13
+!s100 TzB@fHfiY55:gUME@8:Ad1
+!i10b 1
+Egen_freq
+Z30 w1489185371
+R2
+R3
+R4
+R5
+Z31 8C:/Data/vhdl_projects/digital_amp/branches/Sigma-Delta_V3_1/Gen_freq.vhd
+Z32 FC:/Data/vhdl_projects/digital_amp/branches/Sigma-Delta_V3_1/Gen_freq.vhd
+l0
+L5
+VWbWGZH9cVQ1eG731H=1kH3
+R8
+32
+Z33 !s108 1491149854.348000
+Z34 !s90 -reportprogress|300|-work|work|-2002|-explicit|C:/Data/vhdl_projects/digital_amp/branches/Sigma-Delta_V3_1/Gen_freq.vhd|
+Z35 !s107 C:/Data/vhdl_projects/digital_amp/branches/Sigma-Delta_V3_1/Gen_freq.vhd|
+R12
+R13
+!s100 K>fFW16<kb0;kB;<R:]5Y2
+!i10b 1
+Aclk_devide
+R2
+R3
+R4
+Z36 DEx4 work 8 gen_freq 0 22 WbWGZH9cVQ1eG731H=1kH3
+l17
+L12
+VV7hHOW3H^o<kfaacCRhnc1
+R8
+32
+R33
+R34
+R35
+R12
+R13
+!s100 e[2WWSQW]_`D2LJBoEK`D0
+!i10b 1
+Pglobal_params
+R2
+R3
+R4
+w1489789902
+R5
+8C:/Data/vhdl_projects/digital_amp/branches/Sigma-Delta_V3_1/Global_params.vhd
+FC:/Data/vhdl_projects/digital_amp/branches/Sigma-Delta_V3_1/Global_params.vhd
+l0
+L5
+VhfQ@WkLkPQ3QA^:f>m;1C1
+R8
+32
+R12
+R13
+!s100 94VT11[65K[fG0SabFZFM3
+!i10b 1
+!s108 1491149854.442000
+!s90 -reportprogress|300|-work|work|-2002|-explicit|C:/Data/vhdl_projects/digital_amp/branches/Sigma-Delta_V3_1/Global_params.vhd|
+!s107 C:/Data/vhdl_projects/digital_amp/branches/Sigma-Delta_V3_1/Global_params.vhd|
+Emodulator
+Z37 w1489790293
+R1
+R2
+R3
+R4
+R5
+Z38 8C:/Data/vhdl_projects/digital_amp/branches/Sigma-Delta_V3_1/Sigma_delta_modulator.vhd
+Z39 FC:/Data/vhdl_projects/digital_amp/branches/Sigma-Delta_V3_1/Sigma_delta_modulator.vhd
+l0
+L6
+VJWn[1P3:4;]XM8f4VjGBK3
+R8
+32
+Z40 !s108 1491149854.754000
+Z41 !s90 -reportprogress|300|-work|work|-2002|-explicit|C:/Data/vhdl_projects/digital_amp/branches/Sigma-Delta_V3_1/Sigma_delta_modulator.vhd|
+Z42 !s107 C:/Data/vhdl_projects/digital_amp/branches/Sigma-Delta_V3_1/Sigma_delta_modulator.vhd|
+R12
+R13
+!s100 GfXRL9XJZhPS=2hbaP`4a1
+!i10b 1
+Asigma_delta
+R1
+R2
+R3
+R4
+DEx4 work 9 modulator 0 22 JWn[1P3:4;]XM8f4VjGBK3
+l23
+L15
+VS>b0e4IWPdFkfbz6RLg201
+R8
+32
+R40
+R41
+R42
+R12
+R13
+!s100 BmR7];4>AJ`LBRNXd1oVX0
+!i10b 1
+Eshadow_compare
+Z43 w1491139618
+R1
+R2
+R3
+R4
+R5
+Z44 8C:/Data/vhdl_projects/digital_amp/branches/Sigma-Delta_V3_1/Shadow_Compare.vhd
+Z45 FC:/Data/vhdl_projects/digital_amp/branches/Sigma-Delta_V3_1/Shadow_Compare.vhd
+l0
+L6
+VR;VYYTU2`z>KISz30ai`12
+!s100 Ud1YIzhcBVTi0Hg^nS1Qn2
+R8
+32
+!i10b 1
+Z46 !s108 1491149855.315000
+Z47 !s90 -reportprogress|300|-work|work|-2002|-explicit|C:/Data/vhdl_projects/digital_amp/branches/Sigma-Delta_V3_1/Shadow_Compare.vhd|
+Z48 !s107 C:/Data/vhdl_projects/digital_amp/branches/Sigma-Delta_V3_1/Shadow_Compare.vhd|
+R12
+R13
+Aif_compare
+R1
+R2
+R3
+R4
+R28
+l14
+L13
+Z49 Vm[74YA;mB7ehSo:YTGKaZ0
+Z50 !s100 =J8lHzRhMBk5Ynf]>h3Ca2
+R8
+32
+!i10b 1
+R46
+R47
+R48
+R12
+R13
+Esigma_delta_main
+Z51 w1491149179
+R1
+R2
+R3
+R4
+R5
+Z52 8C:/Data/vhdl_projects/digital_amp/branches/Sigma-Delta_V3_1/Sigma_delta_main.vhd
+Z53 FC:/Data/vhdl_projects/digital_amp/branches/Sigma-Delta_V3_1/Sigma_delta_main.vhd
+l0
+L6
+V2XUaiFT?;YXb9A6_:kY[@3
+R8
+32
+Z54 !s108 1491149854.629000
+Z55 !s90 -reportprogress|300|-work|work|-2002|-explicit|C:/Data/vhdl_projects/digital_amp/branches/Sigma-Delta_V3_1/Sigma_delta_main.vhd|
+Z56 !s107 C:/Data/vhdl_projects/digital_amp/branches/Sigma-Delta_V3_1/Sigma_delta_main.vhd|
+R12
+R13
+!s100 ^Ij]QKC2TPYC53U>YKU160
+!i10b 1
+Asigma_delta_modulator
+R14
+R29
+R21
+Z57 DEx4 work 3 spi 0 22 TLKM[coQ=JCkNPzWXhTe`2
+Z58 DEx4 work 13 turn_on_delay 0 22 hSLQo0L0c0JlU4oc[MVck1
+R36
+R1
+R2
+R3
+R4
+Z59 DEx4 work 16 sigma_delta_main 0 22 2XUaiFT?;YXb9A6_:kY[@3
+l114
+L31
+V?WZnC>n38ao@XmN5=3ZJY0
+R8
+32
+R54
+R55
+R56
+R12
+R13
+!s100 <If2Pk3c?4VS11b`RBBO:0
+!i10b 1
+Esigma_delta_modulator_htb
+Z60 w1487521061
+R1
+R2
+R3
+R4
+R5
+Z61 8C:/Data/vhdl_projects/digital_amp/branches/Sigma-Delta_V3_1/Sigema_delta_modulator_htb.vhd
+Z62 FC:/Data/vhdl_projects/digital_amp/branches/Sigma-Delta_V3_1/Sigema_delta_modulator_htb.vhd
+l0
+L6
+VI_aLDd8n87Di;?nUne`2V0
+R8
+32
+Z63 !s108 1491149854.520000
+Z64 !s90 -reportprogress|300|-work|work|-2002|-explicit|C:/Data/vhdl_projects/digital_amp/branches/Sigma-Delta_V3_1/Sigema_delta_modulator_htb.vhd|
+Z65 !s107 C:/Data/vhdl_projects/digital_amp/branches/Sigma-Delta_V3_1/Sigema_delta_modulator_htb.vhd|
+R12
+R13
+!s100 beB0E771I>==[6P[_<ReL2
+!i10b 1
+Afpg_bg
+R1
+R2
+R3
+R4
+DEx4 work 25 sigma_delta_modulator_htb 0 22 I_aLDd8n87Di;?nUne`2V0
+l40
+L12
+V9iEg<6N68]2G4QbnkA<4b2
+R8
+32
+R63
+R64
+R65
+R12
+R13
+!s100 l5c<@PBNBNHACK5eU`S2h2
+!i10b 1
+Esigma_delta_modulator_tb
+Z66 w1491149808
+R1
+R2
+R3
+R4
+Z67 DPx9 altera_mf 20 altera_mf_components 0 22 dN>@>Mze:JEj3f_7zNO2S2
+R5
+Z68 8C:/Data/vhdl_projects/digital_amp/branches/Sigma-Delta_V3_1/Sigma_delta_modulator_tb.vhd
+Z69 FC:/Data/vhdl_projects/digital_amp/branches/Sigma-Delta_V3_1/Sigma_delta_modulator_tb.vhd
+l0
+L8
+VKCg7c;BFa^_4m`bA?8a1l0
+R8
+32
+Z70 !s108 1491149854.863000
+Z71 !s90 -reportprogress|300|-work|work|-2002|-explicit|C:/Data/vhdl_projects/digital_amp/branches/Sigma-Delta_V3_1/Sigma_delta_modulator_tb.vhd|
+Z72 !s107 C:/Data/vhdl_projects/digital_amp/branches/Sigma-Delta_V3_1/Sigma_delta_modulator_tb.vhd|
+R12
+R13
+!s100 9TefJP8g:OCUnWK3MccaR0
+!i10b 1
+Atestbench
+R59
+R1
+R2
+R3
+R4
+R67
+DEx4 work 24 sigma_delta_modulator_tb 0 22 KCg7c;BFa^_4m`bA?8a1l0
+l35
+L11
+VNNRGLEoB[UlIbhNdclQA91
+R8
+32
+R70
+R71
+R72
+R12
+R13
+!s100 TJKS>`:ab]V>P8h_mE[lA1
+!i10b 1
+Espi
+R60
+R1
+R2
+R3
+R4
+R5
+Z73 8C:/Data/vhdl_projects/digital_amp/branches/Sigma-Delta_V3_1/Spi.vhd
+Z74 FC:/Data/vhdl_projects/digital_amp/branches/Sigma-Delta_V3_1/Spi.vhd
+l0
+L6
+VTLKM[coQ=JCkNPzWXhTe`2
+R8
+32
+Z75 !s108 1491149854.988000
+Z76 !s90 -reportprogress|300|-work|work|-2002|-explicit|C:/Data/vhdl_projects/digital_amp/branches/Sigma-Delta_V3_1/Spi.vhd|
+Z77 !s107 C:/Data/vhdl_projects/digital_amp/branches/Sigma-Delta_V3_1/Spi.vhd|
+R12
+R13
+!s100 o;>G3HC1^c]BADZP;FCLB3
+!i10b 1
+Ashift_reg
+R1
+R2
+R3
+R4
+R57
+l34
+L21
+VWVJIhWLOb7L@ma5Pz5o:m3
+R8
+32
+R75
+R76
+R77
+R12
+R13
+!s100 ]RFlbBmzTzY9UBB8OnWl=1
+!i10b 1
+Eturn_on_delay
+R60
+R1
+R2
+R3
+R4
+R5
+Z78 8C:/Data/vhdl_projects/digital_amp/branches/Sigma-Delta_V3_1/Turn_on_delay.vhd
+Z79 FC:/Data/vhdl_projects/digital_amp/branches/Sigma-Delta_V3_1/Turn_on_delay.vhd
+l0
+L6
+VhSLQo0L0c0JlU4oc[MVck1
+R8
+32
+Z80 !s108 1491149855.097000
+Z81 !s90 -reportprogress|300|-work|work|-2002|-explicit|C:/Data/vhdl_projects/digital_amp/branches/Sigma-Delta_V3_1/Turn_on_delay.vhd|
+Z82 !s107 C:/Data/vhdl_projects/digital_amp/branches/Sigma-Delta_V3_1/Turn_on_delay.vhd|
+R12
+R13
+!s100 CjLRoC=ehQ:5YA5GEUS680
+!i10b 1
+Adelay_counter
+R1
+R2
+R3
+R4
+R58
+l18
+L14
+VaO:kRSJknaC:V9O>io3RV1
+R8
+32
+R80
+R81
+R82
+R12
+R13
+!s100 M9LW;1BARDVciB]3Y9fM21
+!i10b 1
+Eturn_on_delay_tb
+Z83 w1489183953
+R1
+R2
+R3
+R4
+R5
+Z84 8C:/Data/vhdl_projects/digital_amp/branches/Sigma-Delta_V3_1/Turn_on_delay_tb.vhd
+Z85 FC:/Data/vhdl_projects/digital_amp/branches/Sigma-Delta_V3_1/Turn_on_delay_tb.vhd
+l0
+L6
+VkFihNj<<W6`Xm;fS>hR_Y2
+R8
+32
+Z86 !s108 1491149855.206000
+Z87 !s90 -reportprogress|300|-work|work|-2002|-explicit|C:/Data/vhdl_projects/digital_amp/branches/Sigma-Delta_V3_1/Turn_on_delay_tb.vhd|
+Z88 !s107 C:/Data/vhdl_projects/digital_amp/branches/Sigma-Delta_V3_1/Turn_on_delay_tb.vhd|
+R12
+R13
+!s100 0Pd?YFBM:kGiIUnHlhO:L0
+!i10b 1
+Atestbench
+R58
+R36
+R1
+R2
+R3
+R4
+DEx4 work 16 turn_on_delay_tb 0 22 kFihNj<<W6`Xm;fS>hR_Y2
+l14
+L9
+VYK_ScbTz[7c6Q9NVO4h`e3
+!s100 fnV_MA?^RbjiYDFznGV>K1
+R8
+32
+R86
+R87
+R88
+R12
+R13
+!i10b 1
