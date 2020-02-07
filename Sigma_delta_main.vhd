@@ -72,7 +72,7 @@ architecture Sigma_delta_modulator of Sigma_delta_main is
     signal tx_done_s        : std_ulogic;
     signal tx_busy_s        : std_ulogic;
     signal uart_tx_en_s     : std_ulogic;
-    signal uart_tx_byte_s   : std_ulogic(7 downto 0);
+    signal uart_tx_byte_s   : std_ulogic_vector(7 downto 0);
     
     -- ##############################################
     -- # signals related to debugging bus
@@ -80,7 +80,7 @@ architecture Sigma_delta_modulator of Sigma_delta_main is
     signal dbg_data_a       : dbg_data_buf_t;
     signal dbg_fifo_wr_a    : dbg_fifo_wr_t;    -- ctrl signals regarding writing to FIFO
     signal dbg_fifo_rd_a    : dbg_fifo_rd_t;    -- ctrl signals regarding reading from FIFO
-	signal dbg_fifo_in_s    : std_ulogic_vector(23 downto 0);   -- value written to FIFO
+    signal dbg_fifo_in_s    : std_ulogic_vector(23 downto 0);   -- value written to FIFO
     signal dbg_fifo_out_s   : std_ulogic_vector(23 downto 0);   -- value read from FIFO
     signal dbg_fifo_aclr_s  : std_ulogic;       -- reset FIFO (connected to system rst)
     signal dbg_fifo_rdempty_s : std_ulogic;
@@ -167,7 +167,7 @@ begin
         );
     led_o <= uart_out_s;
     
-    hdlc_decoder : entity work.hdlc_decoer port map (
+    hdlc_decoder : entity work.hdlc_decoder port map (
         clk50_i         => sys_clk_s, 
         data_i          => uart_out_s,
         reset_n_i       => reset_n_i,
@@ -179,32 +179,32 @@ begin
     );
     
     audio_fifo : entity work.AudioStreamFifo port map(
-		aclr	   => reset_n_i,
-		data	   => word_s,
-		rdclk	   => sample_clk_s,
-		rdreq      => '1',
-		wrclk	   => sys_clk_s,
-		wrreq	   => fifo_wr_rq_s,
-		signed(q)  => audio_sample_s,
-		rdempty	   => no_audio_avail_s,
-		unsigned(wrusedw) => wrusedw_s
+        aclr        => reset_n_i,
+        data        => std_logic_vector(word_s),
+        rdclk       => sample_clk_s,
+        rdreq       => '1',
+        wrclk       => sys_clk_s,
+        wrreq       => fifo_wr_rq_s,
+        signed(q)   => audio_sample_s,
+        rdempty     => no_audio_avail_s,
+        unsigned(wrusedw) => wrusedw_s
     );
     
     uart_tx : entity work.UART_TX port map(
         i_Clk       => sys_clk_s,
         i_TX_DV     => uart_tx_en_s,
-        i_TX_Byte   => uart_tx_byte,
+        i_TX_Byte   => std_logic_vector(uart_tx_byte_s),
         o_TX_Active => tx_busy_s,
         o_TX_Serial => uart_tx_o,
         o_TX_Done   => tx_done_s
     );
     
-    uart_tx_driver : entity work.tx_driver port(
+    uart_tx_driver : entity work.tx_driver port map(
         clk_i           => sys_clk_s,
-        space_left_i    => std_ulogic_vector(space_left_s),
+        space_left_i    => space_left_s,
         uart_busy_i     => tx_busy_s,
         uart_tx_en_o    => uart_tx_en_s,
-        uart_tx_byte_o  => uart_tx_byte
+        uart_tx_byte_o  => uart_tx_byte_s
     );
     
     -- ##############################################
@@ -226,18 +226,18 @@ begin
     -- ##############################################
     dbg_fifo_aclr_s <= not(std_logic(reset_n_i));
     debug_fifo_inst : entity work.DebugFifo port map(
-		aclr	            => dbg_fifo_aclr_s,
-		data	            => std_logic_vector(dbg_fifo_in_s),
-		wrclk	            => std_logic(dbg_fifo_wr_a(wrclk)),
-		wrreq	            => std_logic(dbg_fifo_wr_a(wrreq)),
-        std_ulogic(wrempty)	=> dbg_fifo_wr_a(wrempty),
-		std_ulogic(wrfull)  => dbg_fifo_wr_a(wrfull),
-		std_ulogic_vector(q)=> dbg_fifo_out_s,
-        std_ulogic(rdempty) => dbg_fifo_rdempty_s,
-        rdclk	            => std_logic(dbg_fifo_rd_a(rdclk)),
-		rdreq	            => std_logic(dbg_fifo_rd_a(rdreq)),
-		std_ulogic(rdfull)	=> dbg_fifo_rd_a(rdfull)
-	);
+        aclr                 => dbg_fifo_aclr_s,
+        data                 => std_logic_vector(dbg_fifo_in_s),
+        wrclk                => std_logic(dbg_fifo_wr_a(wrclk)),
+        wrreq                => std_logic(dbg_fifo_wr_a(wrreq)),
+        std_ulogic(wrempty)  => dbg_fifo_wr_a(wrempty),
+        std_ulogic(wrfull)   => dbg_fifo_wr_a(wrfull),
+        std_ulogic_vector(q) => dbg_fifo_out_s,
+        std_ulogic(rdempty)  => dbg_fifo_rdempty_s,
+        rdclk                => std_logic(dbg_fifo_rd_a(rdclk)),
+        rdreq                => std_logic(dbg_fifo_rd_a(rdreq)),
+        std_ulogic(rdfull)   => dbg_fifo_rd_a(rdfull)
+    );
     
     debug_port  : entity work.DbgInterface port map(
         rst_n_i         => reset_n_i,
@@ -249,8 +249,8 @@ begin
         identifier_o    => identifier_o,
         dbg_bus_o       => dbg_bus_o,
         dbg_clk_o       => dbg_clk_o,
-        rdclk_o	        => dbg_fifo_rd_a(rdclk),
-        rdreq_o	        => dbg_fifo_rd_a(rdreq)
+        rdclk_o         => dbg_fifo_rd_a(rdclk),
+        rdreq_o         => dbg_fifo_rd_a(rdreq)
     );
     
     feed_fifo   : entity work.FeedFifo port map(
