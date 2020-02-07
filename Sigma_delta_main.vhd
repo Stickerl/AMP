@@ -58,7 +58,7 @@ architecture Sigma_delta_modulator of Sigma_delta_main is
     -- ##############################################
     signal offset_s         : unsigned(dac_bits downto 0); -- offset to set artificial signals into center of signed number range
     signal sig_gen_s        : unsigned(dac_bits-1 downto 0); -- test signal read out of array
-    signal signed_sig_gen_s : signed(dac_bits+1 downto 0);     -- result (extended by 1 Bit) of substraction of sig_gen_s - offset_s
+    signal signed_sig_gen_s : signed(dac_bits downto 0);     -- result (extended by 1 Bit) of substraction of sig_gen_s - offset_s
     
     -- ##############################################
     -- # signals related to audio stream
@@ -68,9 +68,10 @@ architecture Sigma_delta_modulator of Sigma_delta_main is
     signal fifo_wr_rq_s     : std_ulogic;
     signal word_s           : std_ulogic_vector(15 downto 0);
     signal no_audio_avail_s : std_ulogic;
-    signal audio_sample_s   : signed(dac_bits downto 0);
+    signal audio_sample_s   : signed(15 downto 0);
     signal tx_done_s        : std_ulogic;
     signal tx_busy_s        : std_ulogic;
+    signal resp_avail_s     : std_ulogic;
     signal uart_tx_en_s     : std_ulogic;
     signal uart_tx_byte_s   : std_ulogic_vector(7 downto 0);
     
@@ -132,7 +133,7 @@ begin
     Modulation : entity work.Modulator port map( --Modulator2nd port map (
         mod_clk_i         => mod_clk_s,
         -- adc_sample_s, TODO: change back to adc_sample_s
-        sample_i          => resize(signed_sig_gen_s, 13),    --signed(signed_sig_gen_s(dac_bits) & signed_sig_gen_s(dac_bits-2 downto 0)), -- drop bit(dac_bits-1)
+        sample_i          => resize(audio_sample_s, dac_bits + 1),    --signed(signed_sig_gen_s(dac_bits) & signed_sig_gen_s(dac_bits-2 downto 0)), -- drop bit(dac_bits-1)
         bitstream_o       => bitstream_s,
         rst_n_i           => reset_n_i,
         dbg_chan0_o       => dbg_data_a(0),
@@ -168,12 +169,13 @@ begin
     led_o <= uart_out_s;
     
     hdlc_decoder : entity work.hdlc_decoder port map (
-        clk50_i         => sys_clk_s, 
+        clk_i           => sys_clk_s, 
         data_i          => uart_out_s,
         reset_n_i       => reset_n_i,
         data_avail_i    => uart_received_s,
         wrusedw_i       => wrusedw_s,
         space_left_o    => space_left_s,
+        trg_response_o  => resp_avail_s,
         fifo_wr_rq_o    => fifo_wr_rq_s,
         word_o          => word_s
     );
@@ -190,6 +192,15 @@ begin
         unsigned(wrusedw) => wrusedw_s
     );
     
+    uart_tx_driver : entity work.tx_driver port map(
+        clk_i           => sys_clk_s,
+        space_left_i    => space_left_s,
+        request_i       => resp_avail_s,
+        uart_busy_i     => tx_busy_s,
+        uart_tx_en_o    => uart_tx_en_s,
+        uart_tx_byte_o  => uart_tx_byte_s
+    );
+    
     uart_tx : entity work.UART_TX port map(
         i_Clk       => sys_clk_s,
         i_TX_DV     => uart_tx_en_s,
@@ -199,14 +210,7 @@ begin
         o_TX_Done   => tx_done_s
     );
     
-    uart_tx_driver : entity work.tx_driver port map(
-        clk_i           => sys_clk_s,
-        space_left_i    => space_left_s,
-        uart_busy_i     => tx_busy_s,
-        uart_tx_en_o    => uart_tx_en_s,
-        uart_tx_byte_o  => uart_tx_byte_s
-    );
-    
+
     -- ##############################################
     -- # ADC Handling
     -- ##############################################
@@ -217,10 +221,11 @@ begin
     -- ##############################################
     -- # signal generator
     -- ##############################################
-    signal_gen  : entity work.SignalGenerator port map(sign_gen_clk_s, reset_n_i, x"8FF",
-                                                       "00", sig_gen_s, signed_sig_gen_s, offset_s, dbg_data_a(4), dbg_data_a(5));
-                                                     
-    
+    --signal_gen  : entity work.SignalGenerator port map(sign_gen_clk_s, reset_n_i, resize(x"8FF", dac_bits),
+    --                                                   "00", sig_gen_s, resize(signed_sig_gen_s, dac_bits), 
+    --                                                   offset_s, dbg_data_a(4), dbg_data_a(5));
+    --                                                 
+    --
     -- ############################################## 
     -- # Debugging Bus
     -- ##############################################

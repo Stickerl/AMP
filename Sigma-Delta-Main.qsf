@@ -178,8 +178,6 @@ set_global_assignment -name VHDL_FILE signal_generator.vhd
 set_global_assignment -name VHDL_FILE read_adc.vhd
 set_global_assignment -name VHDL_FILE fifo_raw_debugger.vhd
 set_global_assignment -name VHDL_FILE UART_Module.vhd
-set_location_assignment PIN_A2 -to uart_i
-set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to uart_i
 set_global_assignment -name QIP_FILE AudioStreamFifo.qip
 set_global_assignment -name VHDL_FILE hdlc_decoder.vhd
 set_global_assignment -name VHDL_FILE UART_Tx_driver.vhd
