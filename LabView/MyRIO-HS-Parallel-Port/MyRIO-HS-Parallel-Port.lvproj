@@ -13,9 +13,9 @@
 		<Item Name="PC-Client" Type="Folder" URL="../PC-Client">
 			<Property Name="NI.DISK" Type="Bool">true</Property>
 		</Item>
-		<Item Name="Amplitude_compare.vi" Type="VI" URL="../../../../../Desktop/Sigma Delta/Amplitude_compare.vi"/>
+		<Item Name="Amplitude_compare.vi" Type="VI" URL="../Amplitude_compare.vi"/>
 		<Item Name="comp64_test.vi" Type="VI" URL="../comp64_test.vi"/>
-		<Item Name="Csv_read.vi" Type="VI" URL="../../../../../Desktop/Sigma Delta/Csv_read.vi"/>
+		<Item Name="Csv_read.vi" Type="VI" URL="../Csv_read.vi"/>
 		<Item Name="Read_CSV_To_Int_Array.vi" Type="VI" URL="../Read_CSV_To_Int_Array.vi"/>
 		<Item Name="View-Parallel-Port-Data.vi" Type="VI" URL="../View-Parallel-Port-Data.vi"/>
 		<Item Name="Dependencies" Type="Dependencies">
