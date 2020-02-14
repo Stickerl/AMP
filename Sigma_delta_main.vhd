@@ -135,11 +135,11 @@ begin
         -- adc_sample_s, TODO: change back to adc_sample_s
         sample_i          => resize(audio_sample_s, dac_bits + 1),    --signed(signed_sig_gen_s(dac_bits) & signed_sig_gen_s(dac_bits-2 downto 0)), -- drop bit(dac_bits-1)
         bitstream_o       => bitstream_s,
-        rst_n_i           => reset_n_i,
-        dbg_chan0_o       => dbg_data_a(0),
-        dbg_chan1_o       => dbg_data_a(1),
-        dbg_chan2_o       => dbg_data_a(2),
-        dbg_chan3_o       => dbg_data_a(3)
+        rst_n_i           => reset_n_i
+        --dbg_chan0_o       => dbg_data_a(0),
+        --dbg_chan1_o       => dbg_data_a(1),
+        --dbg_chan2_o       => dbg_data_a(2),
+        --dbg_chan3_o       => dbg_data_a(3)
     );
       
     bitstream_n_s   <= not(bitstream_s); 
@@ -191,7 +191,7 @@ begin
         rdempty     => no_audio_avail_s,
         unsigned(wrusedw) => wrusedw_s
     );
-    
+
     uart_tx_driver : entity work.tx_driver port map(
         clk_i           => sys_clk_s,
         space_left_i    => space_left_s,
@@ -210,6 +210,16 @@ begin
         o_TX_Done   => tx_done_s
     );
     
+    audio_sample_dbg_out    :   process (sys_clk_s)
+        variable new_data_s : std_ulogic := '0';
+    begin
+        if rising_edge(sys_clk_s) then
+            if uart_received_s = '1' then
+                dbg_data_a(0)   <= new_data_s & x"00" & std_Ulogic_vector(uart_out_s);
+                new_data_s      := not new_data_s;
+            end if;
+        end if;
+    end process;
 
     -- ##############################################
     -- # ADC Handling
