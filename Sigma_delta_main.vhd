@@ -92,6 +92,8 @@ architecture Sigma_delta_modulator of Sigma_delta_main is
     signal uart_out_s       : std_ulogic_vector (7 downto 0);
     signal uart_received_s  : std_ulogic;
     signal toggle_s         : std_ulogic;
+    signal new_uart_data_s  : std_ulogic := '0';
+    signal new_audio_data_s : std_ulogic := '0';
     
 begin
 --    dbg_pins_o(0)   <= 
@@ -135,11 +137,11 @@ begin
         -- adc_sample_s, TODO: change back to adc_sample_s
         sample_i          => resize(audio_sample_s, dac_bits + 1),    --signed(signed_sig_gen_s(dac_bits) & signed_sig_gen_s(dac_bits-2 downto 0)), -- drop bit(dac_bits-1)
         bitstream_o       => bitstream_s,
-        rst_n_i           => reset_n_i,
-        dbg_chan0_o       => dbg_data_a(0),
-        dbg_chan1_o       => dbg_data_a(1),
-        dbg_chan2_o       => dbg_data_a(2),
-        dbg_chan3_o       => dbg_data_a(3)
+        rst_n_i           => reset_n_i
+        --dbg_chan0_o       => dbg_data_a(0),
+        --dbg_chan1_o       => dbg_data_a(1),
+        --dbg_chan2_o       => dbg_data_a(2),
+        --dbg_chan3_o       => dbg_data_a(3)
     );
       
     bitstream_n_s   <= not(bitstream_s); 
@@ -181,7 +183,7 @@ begin
     );
     
     audio_fifo : entity work.AudioStreamFifo port map(
-        aclr        => reset_n_i,
+        aclr        => not(reset_n_i),
         data        => std_logic_vector(word_s),
         rdclk       => sample_clk_s,
         rdreq       => '1',
@@ -191,7 +193,7 @@ begin
         rdempty     => no_audio_avail_s,
         unsigned(wrusedw) => wrusedw_s
     );
-    
+
     uart_tx_driver : entity work.tx_driver port map(
         clk_i           => sys_clk_s,
         space_left_i    => space_left_s,
@@ -210,6 +212,33 @@ begin
         o_TX_Done   => tx_done_s
     );
     
+    decoded_hdlc_dbg_out    : process(sys_clk_s)
+        
+    begin
+        if reset_n_i = '0' then
+            new_uart_data_s <= '0';
+            
+        elsif rising_edge(sys_clk_s) then
+            if fifo_wr_rq_s = '1' then
+                dbg_data_a(0)   <= new_uart_data_s & word_s; -- new_data_s & x"00" & std_Ulogic_vector(uart_out_s);
+                new_uart_data_s <= not new_uart_data_s;
+            end if;
+        end if;
+    end process;
+    
+    audio_sample_dbg_out    :   process (sample_clk_s)
+        
+    begin
+        if reset_n_i = '0' then
+            new_audio_data_s <= '0';
+            
+        elsif rising_edge(sample_clk_s) then
+            if no_audio_avail_s = '0' then
+                dbg_data_a(1) <= new_audio_data_s & std_Ulogic_vector(audio_sample_s);
+                new_audio_data_s <= not new_audio_data_s;
+            end if;
+        end if;
+    end process;
 
     -- ##############################################
     -- # ADC Handling

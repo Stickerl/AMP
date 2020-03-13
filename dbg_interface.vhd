@@ -20,8 +20,8 @@ port (
     identifier_o        :   out std_ulogic_vector(7 downto 0);
     dbg_bus_o           :   out std_ulogic_vector(15 downto 0);
     dbg_clk_o           :   out std_ulogic;
-    rdclk_o	            :   out std_ulogic;
-	rdreq_o	            :   out std_ulogic);
+    rdclk_o             :   out std_ulogic;
+    rdreq_o             :   out std_ulogic);
 end DbgInterface;
 
 architecture MyRio of DbgInterface is
