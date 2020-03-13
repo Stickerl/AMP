@@ -92,6 +92,8 @@ architecture Sigma_delta_modulator of Sigma_delta_main is
     signal uart_out_s       : std_ulogic_vector (7 downto 0);
     signal uart_received_s  : std_ulogic;
     signal toggle_s         : std_ulogic;
+    signal new_uart_data_s  : std_ulogic := '0';
+    signal new_audio_data_s : std_ulogic := '0';
     
 begin
 --    dbg_pins_o(0)   <= 
@@ -181,7 +183,7 @@ begin
     );
     
     audio_fifo : entity work.AudioStreamFifo port map(
-        aclr        => reset_n_i,
+        aclr        => not(reset_n_i),
         data        => std_logic_vector(word_s),
         rdclk       => sample_clk_s,
         rdreq       => '1',
@@ -210,13 +212,30 @@ begin
         o_TX_Done   => tx_done_s
     );
     
-    audio_sample_dbg_out    :   process (sys_clk_s)
-        variable new_data_s : std_ulogic := '0';
+    decoded_hdlc_dbg_out    : process(sys_clk_s)
+        
     begin
-        if rising_edge(sys_clk_s) then
-            if uart_received_s = '1' then
-                dbg_data_a(0)   <= new_data_s & x"00" & std_Ulogic_vector(uart_out_s);
-                new_data_s      := not new_data_s;
+        if reset_n_i = '0' then
+            new_uart_data_s <= '0';
+            
+        elsif rising_edge(sys_clk_s) then
+            if fifo_wr_rq_s = '1' then
+                dbg_data_a(0)   <= new_uart_data_s & word_s; -- new_data_s & x"00" & std_Ulogic_vector(uart_out_s);
+                new_uart_data_s <= not new_uart_data_s;
+            end if;
+        end if;
+    end process;
+    
+    audio_sample_dbg_out    :   process (sample_clk_s)
+        
+    begin
+        if reset_n_i = '0' then
+            new_audio_data_s <= '0';
+            
+        elsif rising_edge(sample_clk_s) then
+            if no_audio_avail_s = '0' then
+                dbg_data_a(1) <= new_audio_data_s & std_Ulogic_vector(audio_sample_s);
+                new_audio_data_s <= not new_audio_data_s;
             end if;
         end if;
     end process;
