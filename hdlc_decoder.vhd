@@ -24,10 +24,19 @@ architecture hdlc_protocol of hdlc_decoder is
     signal word_s       :   std_ulogic_vector(15 downto 0);    
 
 begin     
-    der_hdlc_juergen : process (clk_i)
+    der_hdlc_juergen : process (clk_i, reset_n_i)
     
     begin
-        if rising_edge(clk_i) then
+        if reset_n_i = '0' then
+            space_left_o    <= x"FFFF";
+            trg_response_o  <= '0';
+            escape_s        <= '0';
+            fifo_wr_rq_o    <= '0';
+            word_o          <= (others => '0');
+            word_s          <= (others => '0');
+            byte_cnt_s      <= (others => '0');
+            
+        elsif rising_edge(clk_i) then
             word_o <= word_s;
             
             -- if UART data available
