@@ -1,0 +1,71 @@
+# Copyright (C) 2018  Intel Corporation. All rights reserved.
+# Your use of Intel Corporation's design tools, logic functions 
+# and other software and tools, and its AMPP partner logic 
+# functions, and any output files from any of the foregoing 
+# (including device programming or simulation files), and any 
+# associated documentation or information are expressly subject 
+# to the terms and conditions of the Intel Program License 
+# Subscription Agreement, the Intel Quartus Prime License Agreement,
+# the Intel FPGA IP License Agreement, or other applicable license
+# agreement, including, without limitation, that your use is for
+# the sole purpose of programming logic devices manufactured by
+# Intel and sold by Intel or its authorized distributors.  Please
+# refer to the applicable agreement for further details.
+
+# Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
+# File: C:\git_repos\AMP\Sigma-Delta-Main_Pinlist.csv
+# Generated on: Fri Feb 14 21:35:13 2020
+
+# Note: The column header names should not be changed if you wish to import this .csv file into the Quartus Prime software.
+
+To,Direction,Location,I/O Bank,VREF Group,Fitter Location,I/O Standard,Reserved,Current Strength,Slew Rate,Differential Pair,Strict Preservation
+bit_str_raw_n_o,Output,PIN_B5,8,B8_N0,PIN_B5,3.3-V LVTTL,,,,,
+bit_str_raw_o,Output,PIN_B4,8,B8_N0,PIN_B4,3.3-V LVTTL,,,,,
+clk50_i,Input,PIN_R8,3,B3_N0,PIN_R8,3.3-V LVTTL,,,,,
+csn_o,Output,PIN_A10,7,B7_N0,PIN_A10,3.3-V LVTTL,,,,,
+dbg_bus_o[0],Output,PIN_J14,5,B5_N0,PIN_J14,3.3-V LVCMOS,,,,,
+dbg_bus_o[1],Output,PIN_J13,5,B5_N0,PIN_J13,3.3-V LVCMOS,,,,,
+dbg_bus_o[2],Output,PIN_K15,5,B5_N0,PIN_K15,3.3-V LVCMOS,,,,,
+dbg_bus_o[3],Output,PIN_J16,5,B5_N0,PIN_J16,3.3-V LVCMOS,,,,,
+dbg_bus_o[4],Output,PIN_L13,5,B5_N0,PIN_L13,3.3-V LVCMOS,,,,,
+dbg_bus_o[5],Output,PIN_M10,4,B4_N0,PIN_M10,3.3-V LVCMOS,,,,,
+dbg_bus_o[6],Output,PIN_N14,5,B5_N0,PIN_N14,3.3-V LVCMOS,,,,,
+dbg_bus_o[7],Output,PIN_L14,5,B5_N0,PIN_L14,3.3-V LVCMOS,,,,,
+dbg_bus_o[8],Output,PIN_P14,4,B4_N0,PIN_P14,3.3-V LVCMOS,,,,,
+dbg_bus_o[9],Output,PIN_N15,5,B5_N0,PIN_N15,3.3-V LVCMOS,,,,,
+dbg_bus_o[10],Output,PIN_N16,5,B5_N0,PIN_N16,3.3-V LVCMOS,,,,,
+dbg_bus_o[11],Output,PIN_R14,4,B4_N0,PIN_R14,3.3-V LVCMOS,,,,,
+dbg_bus_o[12],Output,PIN_P16,5,B5_N0,PIN_P16,3.3-V LVCMOS,,,,,
+dbg_bus_o[13],Output,PIN_P15,5,B5_N0,PIN_P15,3.3-V LVCMOS,,,,,
+dbg_bus_o[14],Output,PIN_L15,5,B5_N0,PIN_L15,3.3-V LVCMOS,,,,,
+dbg_bus_o[15],Output,PIN_R16,5,B5_N0,PIN_R16,3.3-V LVCMOS,,,,,
+dbg_clk_o,Output,PIN_B12,7,B7_N0,PIN_B12,3.3-V LVCMOS,,,,,
+dbg_pins_o[0],Output,PIN_D12,7,B7_N0,PIN_D12,3.3-V LVTTL,,,,,
+dbg_pins_o[1],Output,PIN_T15,4,B4_N0,PIN_T15,3.3-V LVTTL,,,,,
+dbg_pins_o[2],Output,PIN_T13,4,B4_N0,PIN_T13,3.3-V LVTTL,,,,,
+dbg_pins_o[3],Output,PIN_F13,6,B6_N0,PIN_F13,3.3-V LVTTL,,,,,
+dbg_pins_o[4],Output,PIN_T12,4,B4_N0,PIN_T12,3.3-V LVTTL,,,,,
+hs_o,Output,PIN_D3,8,B8_N0,PIN_D3,3.3-V LVTTL,,,,,
+identifier_o[0],Output,PIN_K16,5,B5_N0,PIN_K16,3.3-V LVCMOS,,,,,
+identifier_o[1],Output,PIN_L16,5,B5_N0,PIN_L16,3.3-V LVCMOS,,,,,
+identifier_o[2],Output,PIN_N11,4,B4_N0,PIN_N11,3.3-V LVCMOS,,,,,
+identifier_o[3],Output,PIN_N9,4,B4_N0,PIN_N9,3.3-V LVCMOS,,,,,
+identifier_o[4],Output,PIN_P9,4,B4_N0,PIN_P9,3.3-V LVCMOS,,,,,
+identifier_o[5],Output,PIN_N12,4,B4_N0,PIN_N12,3.3-V LVCMOS,,,,,
+identifier_o[6],Output,PIN_R10,4,B4_N0,PIN_R10,3.3-V LVCMOS,,,,,
+identifier_o[7],Output,PIN_P11,4,B4_N0,PIN_P11,3.3-V LVCMOS,,,,,
+led_o[0],Output,PIN_A15,7,B7_N0,PIN_A15,3.3-V LVTTL,,,,,
+led_o[1],Output,PIN_A13,7,B7_N0,PIN_A13,3.3-V LVTTL,,,,,
+led_o[2],Output,PIN_B13,7,B7_N0,PIN_B13,3.3-V LVTTL,,,,,
+led_o[3],Output,PIN_A11,7,B7_N0,PIN_A11,3.3-V LVTTL,,,,,
+led_o[4],Output,PIN_D1,1,B1_N0,PIN_D1,3.3-V LVTTL,,,,,
+led_o[5],Output,PIN_F3,1,B1_N0,PIN_F3,3.3-V LVTTL,,,,,
+led_o[6],Output,PIN_B1,1,B1_N0,PIN_B1,3.3-V LVTTL,,,,,
+led_o[7],Output,PIN_L3,2,B2_N0,PIN_L3,3.3-V LVTTL,,,,,
+ls_o,Output,PIN_C3,8,B8_N0,PIN_C3,3.3-V LVTTL,,,,,
+reset_n_i,Input,PIN_J15,5,B5_N0,PIN_J15,2.5 V,,,,,
+sclk_o,Output,PIN_B14,7,B7_N0,PIN_B14,3.3-V LVTTL,,,,,
+sd_i,Input,PIN_A9,7,B7_N0,PIN_A9,3.3-V LVTTL,,,,,
+sd_o,Output,PIN_B10,7,B7_N0,PIN_B10,3.3-V LVTTL,,,,,
+uart_rx_i,Input,PIN_D11,7,B7_N0,PIN_E9,3.3-V LVTTL,,,,,
+uart_tx_o,Output,,,,PIN_M8,3.3-V LVTTL,,,,,
