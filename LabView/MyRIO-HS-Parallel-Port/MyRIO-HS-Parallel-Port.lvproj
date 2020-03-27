@@ -15,6 +15,7 @@
 		</Item>
 		<Item Name="Amplitude_compare.vi" Type="VI" URL="../Amplitude_compare.vi"/>
 		<Item Name="comp64_test.vi" Type="VI" URL="../comp64_test.vi"/>
+		<Item Name="CreatCsv.vi" Type="VI" URL="../SubVIs/CreatCsv.vi"/>
 		<Item Name="Csv_read.vi" Type="VI" URL="../Csv_read.vi"/>
 		<Item Name="Read_CSV_To_Int_Array.vi" Type="VI" URL="../Read_CSV_To_Int_Array.vi"/>
 		<Item Name="View-Parallel-Port-Data.vi" Type="VI" URL="../View-Parallel-Port-Data.vi"/>
