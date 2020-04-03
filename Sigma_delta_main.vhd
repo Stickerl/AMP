@@ -83,7 +83,6 @@ architecture Sigma_delta_modulator of Sigma_delta_main is
     signal dbg_fifo_rd_a    : dbg_fifo_rd_t;    -- ctrl signals regarding reading from FIFO
     signal dbg_fifo_in_s    : std_ulogic_vector(23 downto 0);   -- value written to FIFO
     signal dbg_fifo_out_s   : std_ulogic_vector(23 downto 0);   -- value read from FIFO
-    signal dbg_fifo_aclr_s  : std_ulogic;       -- reset FIFO (connected to system rst)
     signal dbg_fifo_rdempty_s : std_ulogic;
     
     -- ##############################################
@@ -168,7 +167,6 @@ begin
         o_RX_DV     => uart_received_s,
         std_logic_vector(o_RX_Byte)   => uart_out_s
         );
-    led_o <= uart_out_s;
     
     hdlc_decoder : entity work.hdlc_decoder port map (
         clk_i           => sys_clk_s, 
@@ -181,6 +179,8 @@ begin
         fifo_wr_rq_o    => fifo_wr_rq_s,
         word_o          => word_s
     );
+    led_o(3 downto 0) <= word_s(3 downto 0);
+    led_o(7 downto 4) <= word_s(11 downto 8);
     
     audio_fifo : entity work.AudioStreamFifo port map(
         aclr        => not(reset_n_i),
@@ -212,7 +212,7 @@ begin
         o_TX_Done   => tx_done_s
     );
     
-    decoded_hdlc_dbg_out    : process(sys_clk_s)
+    decoded_hdlc_dbg_out    : process(sys_clk_s, reset_n_i)
         
     begin
         if reset_n_i = '0' then
@@ -226,7 +226,7 @@ begin
         end if;
     end process;
     
-    audio_sample_dbg_out    :   process (sample_clk_s)
+    audio_sample_dbg_out    :   process (sample_clk_s, reset_n_i)
         
     begin
         if reset_n_i = '0' then
@@ -258,9 +258,8 @@ begin
     -- ############################################## 
     -- # Debugging Bus
     -- ##############################################
-    dbg_fifo_aclr_s <= not(std_logic(reset_n_i));
     debug_fifo_inst : entity work.DebugFifo port map(
-        aclr                 => dbg_fifo_aclr_s,
+        aclr                 => not(reset_n_i),
         data                 => std_logic_vector(dbg_fifo_in_s),
         wrclk                => std_logic(dbg_fifo_wr_a(wrclk)),
         wrreq                => std_logic(dbg_fifo_wr_a(wrreq)),
