@@ -31,7 +31,7 @@ architecture Sigma_delta_modulator of Sigma_delta_main is
     -- ##############################################
     signal sys_clk_s        : std_ulogic;   -- main clk, other clks derived from this
     signal mod_clk_s        : std_ulogic;   -- clk for sigma-delta loop
-    signal sample_clk_s     : std_ulogic;   -- ADC sample clk
+    signal sample_clk_s     : std_ulogic;   -- sample clk
     signal sample_clk_old_s : std_ulogic;   -- needed?
     signal dbg_clk_s        : std_ulogic;   -- clk of debugging bus
     signal sign_gen_clk_s   : std_ulogic;   -- clk for reading sample from LUT (signal generator)
@@ -98,20 +98,19 @@ begin
     -- ##############################################
     
     -- 50MHz / 1 = 50MHz
-    sys_clk_psc    : entity work.GenFreq port map (reset_n_i, clk50_i, x"0000_0001", sys_clk_s);
+    sys_clk_psc         : entity work.GenFreq port map (reset_n_i, clk50_i, x"0000_0001", sys_clk_s);
     
     -- sys_clk(50MHz) / 33 = 1.5MHz, modulation clk
-    modulation_psc : entity work.GenFreq port map (reset_n_i, sys_clk_s, x"0000_0021", mod_clk_s);
+    modulation_psc      : entity work.GenFreq port map (reset_n_i, sys_clk_s, x"0000_0021", mod_clk_s);
     
     -- sys_clk(50MHz) / 4 = 12.5MHz, clk for debugging bus 
-    dbgclk_psc     : entity work.GenFreq port map (reset_n_i, sys_clk_s, x"0000_0004", dbg_clk_s);
+    dbgclk_psc          : entity work.GenFreq port map (reset_n_i, sys_clk_s, x"0000_0004", dbg_clk_s);
     
-    -- sys_clk(50MHz) / 1040 = 48.08kHz, sample rate for ADC sample_clk_s / 2 
-    -- TODO: Should'nt the divider be 260
-    adc_sample_clk : entity work.GenFreq port map (reset_n_i, sys_clk_s, x"0000_0410", sample_clk_s);
+    -- sys_clk(50MHz) / 1040 = 48.08kHz, sample rate for audio data
+    sample_clk_psc      : entity work.GenFreq port map (reset_n_i, sys_clk_s, x"0000_0410", sample_clk_s);
     
     -- sys_clk(50MHz) / 520 = 96.15kHz, read clk for embedded signal generator (signal from LUT)
-    sign_gen_clk   : entity work.GenFreq port map (reset_n_i, sys_clk_s, x"0000_0208", sign_gen_clk_s);
+    sign_gen_clk_psc    : entity work.GenFreq port map (reset_n_i, sys_clk_s, x"0000_0208", sign_gen_clk_s);
    
     -- ##############################################
     -- # Sigma-Delta-Modulation
@@ -119,12 +118,11 @@ begin
     
     Modulation : entity work.Modulator port map( --Modulator2nd port map (
         mod_clk_i         => mod_clk_s,
-        -- adc_sample_s, TODO: change back to adc_sample_s
         sample_i          => resize(audio_sample_s, dac_bits + 1),    --signed(signed_sig_gen_s(dac_bits) & signed_sig_gen_s(dac_bits-2 downto 0)), -- drop bit(dac_bits-1)
         bitstream_o       => bitstream_s,
-        rst_n_i           => reset_n_i
-        --dbg_chan0_o       => dbg_data_a(0),
-        --dbg_chan1_o       => dbg_data_a(1),
+        rst_n_i           => reset_n_i,
+        dbg_chan0_o       => dbg_data_a(0),
+        dbg_chan1_o       => dbg_data_a(1)
         --dbg_chan2_o       => dbg_data_a(2),
         --dbg_chan3_o       => dbg_data_a(3)
     );
@@ -204,7 +202,7 @@ begin
             
         elsif rising_edge(sample_clk_s) then
             if no_audio_avail_s = '0' then
-                dbg_data_a(1) <= new_audio_data_s & std_Ulogic_vector(audio_sample_s);
+                dbg_data_a(4) <= new_audio_data_s & std_Ulogic_vector(audio_sample_s);
                 new_audio_data_s <= not new_audio_data_s;
             end if;
         end if;
