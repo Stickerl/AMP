@@ -11,11 +11,6 @@ port (clk50_i           :   in  std_ulogic; -- 50MHz external clk input
       uart_rx_i         :   in  std_ulogic; -- Pin to receive UART stream from PC
       uart_tx_o         :   out std_ulogic; 
       
-      sd_i              :   in  std_ulogic; -- ADC serial data in
-      sd_o              :   out std_ulogic; -- ADC serial data out
-      sclk_o            :   out std_ulogic; -- ADC serial clk
-      csn_o             :   out std_ulogic; -- ADC chip select
-      
       hs_o              :   out std_ulogic; -- high side gate driver
       ls_o              :   out std_ulogic; -- low  side gate driver
       bit_str_raw_o     :   out std_ulogic; -- high side driver output without break before make
@@ -36,7 +31,6 @@ architecture Sigma_delta_modulator of Sigma_delta_main is
     -- ##############################################
     signal sys_clk_s        : std_ulogic;   -- main clk, other clks derived from this
     signal mod_clk_s        : std_ulogic;   -- clk for sigma-delta loop
-    signal spi_module_clk_s : std_ulogic;   -- clk for spi logic
     signal sample_clk_s     : std_ulogic;   -- ADC sample clk
     signal sample_clk_old_s : std_ulogic;   -- needed?
     signal dbg_clk_s        : std_ulogic;   -- clk of debugging bus
@@ -48,10 +42,6 @@ architecture Sigma_delta_modulator of Sigma_delta_main is
     signal bitstream_s      : std_ulogic;   -- high side
     signal bitstream_n_s    : std_ulogic;   -- low side
 
-    -- ##############################################
-    -- # value sampled by ADC
-    -- ##############################################
-    signal adc_sample_s     : unsigned(adc_word_len_c-1 downto 0);
 
     -- ##############################################
     -- # signals related to signal generator
@@ -112,9 +102,6 @@ begin
     
     -- sys_clk(50MHz) / 33 = 1.5MHz, modulation clk
     modulation_psc : entity work.GenFreq port map (reset_n_i, sys_clk_s, x"0000_0021", mod_clk_s);
-    
-    -- sys_clk(50MHz) / 12 = 4.17MHz, spi clock for onboard ADC
-    spi_module_ckl : entity work.GenFreq port map (reset_n_i, sys_clk_s, x"0000_000C", spi_module_clk_s);
     
     -- sys_clk(50MHz) / 4 = 12.5MHz, clk for debugging bus 
     dbgclk_psc     : entity work.GenFreq port map (reset_n_i, sys_clk_s, x"0000_0004", dbg_clk_s);
@@ -222,14 +209,7 @@ begin
             end if;
         end if;
     end process;
-
-    -- ##############################################
-    -- # ADC Handling
-    -- ##############################################
-    adc_via_spi : entity work.ReadAdc port map (sys_clk_s, spi_module_clk_s, sample_clk_s,
-                                                reset_n_i, adc_sample_s,
-                                                sd_i, sclk_o, sd_o, csn_o);
-                                                    
+    
     -- ##############################################
     -- # signal generator
     -- ##############################################
