@@ -157,9 +157,7 @@ begin
         data_i          => uart_out_s,
         reset_n_i       => reset_n_i,
         data_avail_i    => uart_received_s,
-        wrusedw_i       => wrusedw_s,
-        space_left_o    => space_left_s,
-        trg_response_o  => resp_avail_s,
+        flag_received_o => resp_avail_s,
         fifo_wr_rq_o    => fifo_wr_rq_s,
         word_o          => word_s
     );
@@ -168,7 +166,7 @@ begin
         aclr        => not(reset_n_i),
         data        => std_logic_vector(word_s),
         rdclk       => sample_clk_s,
-        rdreq       => '1',
+        rdreq       => not(no_audio_avail_s),
         wrclk       => sys_clk_s,
         wrreq       => fifo_wr_rq_s,
         signed(q)   => audio_sample_s,
@@ -178,7 +176,7 @@ begin
 
     uart_tx_driver : entity work.tx_driver port map(
         clk_i           => sys_clk_s,
-        space_left_i    => space_left_s,
+        space_left_i    => resize((4096 - wrusedw_s), 16), -- something buggy with this! in case the FIFO is empty, this statement results to 0x0000
         request_i       => resp_avail_s,
         uart_busy_i     => tx_busy_s,
         uart_tx_en_o    => uart_tx_en_s,
