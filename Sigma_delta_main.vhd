@@ -203,25 +203,25 @@ begin
             
         elsif rising_edge(sys_clk_s) then
             if fifo_wr_rq_s = '1' then
-                dbg_data_a(0)   <= new_uart_data_s & word_s; -- new_data_s & x"00" & std_Ulogic_vector(uart_out_s);
+                dbg_data_a(4)   <= new_uart_data_s & word_s; -- new_data_s & x"00" & std_Ulogic_vector(uart_out_s);
                 new_uart_data_s <= not new_uart_data_s;
             end if;
         end if;
     end process;
     
-    audio_sample_dbg_out    :   process (sample_clk_s, reset_n_i)
-        
-    begin
-        if reset_n_i = '0' then
-            new_audio_data_s <= '0';
-            
-        elsif rising_edge(sample_clk_s) then
-            if no_audio_avail_s = '0' then
-                dbg_data_a(4) <= new_audio_data_s & std_Ulogic_vector(audio_sample_s);
-                new_audio_data_s <= not new_audio_data_s;
-            end if;
-        end if;
-    end process;
+--    audio_sample_dbg_out    :   process (sample_clk_s, reset_n_i)
+--        
+--    begin
+--        if reset_n_i = '0' then
+--            new_audio_data_s <= '0';
+--            
+--        elsif rising_edge(sample_clk_s) then
+--            if no_audio_avail_s = '0' then
+--                dbg_data_a(4) <= new_audio_data_s & std_Ulogic_vector(audio_sample_s);
+--                new_audio_data_s <= not new_audio_data_s;
+--            end if;
+--        end if;
+--    end process;
     
     -- ##############################################
     -- # signal generator
