@@ -17,7 +17,7 @@ use ieee.numeric_std.all;
  
 entity UART_RX is
   generic (
-    g_CLKS_PER_BIT : integer := 33     -- 50MHz / 1.5MHz = 33 
+    g_CLKS_PER_BIT : integer := 25     -- 50MHz / 2MHz = 25
     );
   port (
     i_Clk       : in  std_logic;
@@ -160,7 +160,7 @@ use ieee.numeric_std.all;
  
 entity UART_TX is
   generic (
-    g_CLKS_PER_BIT : integer := 33     -- 50MHz / 1.5MHz = 33 
+    g_CLKS_PER_BIT : integer := 25     -- 50MHz / 2MHz = 25
     );
   port (
     i_Clk       : in  std_logic;

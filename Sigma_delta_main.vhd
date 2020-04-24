@@ -176,7 +176,7 @@ begin
 
     uart_tx_driver : entity work.tx_driver port map(
         clk_i           => sys_clk_s,
-        space_left_i    => resize((4096 - wrusedw_s), 16), -- something buggy with this! in case the FIFO is empty, this statement results to 0x0000
+        space_left_i    => resize(not(wrusedw_s), 16),
         request_i       => resp_avail_s,
         uart_busy_i     => tx_busy_s,
         uart_tx_en_o    => uart_tx_en_s,
