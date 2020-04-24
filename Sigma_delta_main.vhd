@@ -81,6 +81,7 @@ architecture Sigma_delta_modulator of Sigma_delta_main is
     signal uart_out_s       : std_ulogic_vector (7 downto 0);
     signal uart_received_s  : std_ulogic;
     signal toggle_s         : std_ulogic;
+    signal new_uart_data_s  : std_ulogic := '0';
     signal new_audio_data_s : std_ulogic := '0';
     
 begin
@@ -161,6 +162,8 @@ begin
         fifo_wr_rq_o    => fifo_wr_rq_s,
         word_o          => word_s
     );
+    led_o(3 downto 0) <= word_s(3 downto 0);
+    led_o(7 downto 4) <= word_s(11 downto 8);
     
     audio_fifo : entity work.AudioStreamFifo port map(
         aclr        => not(reset_n_i),
@@ -191,6 +194,20 @@ begin
         o_TX_Serial => uart_tx_o,
         o_TX_Done   => tx_done_s
     );
+    
+    decoded_hdlc_dbg_out    : process(sys_clk_s, reset_n_i)
+        
+    begin
+        if reset_n_i = '0' then
+            new_uart_data_s <= '0';
+            
+        elsif rising_edge(sys_clk_s) then
+            if fifo_wr_rq_s = '1' then
+                dbg_data_a(0)   <= new_uart_data_s & word_s; -- new_data_s & x"00" & std_Ulogic_vector(uart_out_s);
+                new_uart_data_s <= not new_uart_data_s;
+            end if;
+        end if;
+    end process;
     
     audio_sample_dbg_out    :   process (sample_clk_s, reset_n_i)
         
