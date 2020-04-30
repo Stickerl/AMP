@@ -50,7 +50,7 @@ ENTITY AudioStreamFifo IS
 		wrreq		: IN STD_LOGIC ;
 		q		: OUT STD_LOGIC_VECTOR (15 DOWNTO 0);
 		rdempty		: OUT STD_LOGIC ;
-		wrusedw		: OUT STD_LOGIC_VECTOR (11 DOWNTO 0)
+		wrusedw		: OUT STD_LOGIC_VECTOR (13 DOWNTO 0)
 	);
 END AudioStreamFifo;
 
@@ -59,7 +59,7 @@ ARCHITECTURE SYN OF audiostreamfifo IS
 
 	SIGNAL sub_wire0	: STD_LOGIC_VECTOR (15 DOWNTO 0);
 	SIGNAL sub_wire1	: STD_LOGIC ;
-	SIGNAL sub_wire2	: STD_LOGIC_VECTOR (11 DOWNTO 0);
+	SIGNAL sub_wire2	: STD_LOGIC_VECTOR (13 DOWNTO 0);
 
 
 
@@ -88,23 +88,23 @@ ARCHITECTURE SYN OF audiostreamfifo IS
 			wrreq	: IN STD_LOGIC ;
 			q	: OUT STD_LOGIC_VECTOR (15 DOWNTO 0);
 			rdempty	: OUT STD_LOGIC ;
-			wrusedw	: OUT STD_LOGIC_VECTOR (11 DOWNTO 0)
+			wrusedw	: OUT STD_LOGIC_VECTOR (13 DOWNTO 0)
 	);
 	END COMPONENT;
 
 BEGIN
 	q    <= sub_wire0(15 DOWNTO 0);
 	rdempty    <= sub_wire1;
-	wrusedw    <= sub_wire2(11 DOWNTO 0);
+	wrusedw    <= sub_wire2(13 DOWNTO 0);
 
 	dcfifo_component : dcfifo
 	GENERIC MAP (
 		intended_device_family => "Cyclone IV E",
-		lpm_numwords => 4096,
+		lpm_numwords => 16384,
 		lpm_showahead => "OFF",
 		lpm_type => "dcfifo",
 		lpm_width => 16,
-		lpm_widthu => 12,
+		lpm_widthu => 14,
 		overflow_checking => "OFF",
 		rdsync_delaypipe => 5,
 		read_aclr_synch => "OFF",
@@ -138,7 +138,7 @@ END SYN;
 -- Retrieval info: PRIVATE: AlmostFullThr NUMERIC "-1"
 -- Retrieval info: PRIVATE: CLOCKS_ARE_SYNCHRONIZED NUMERIC "0"
 -- Retrieval info: PRIVATE: Clock NUMERIC "4"
--- Retrieval info: PRIVATE: Depth NUMERIC "4096"
+-- Retrieval info: PRIVATE: Depth NUMERIC "16384"
 -- Retrieval info: PRIVATE: Empty NUMERIC "0"
 -- Retrieval info: PRIVATE: Full NUMERIC "0"
 -- Retrieval info: PRIVATE: INTENDED_DEVICE_FAMILY STRING "Cyclone IV E"
@@ -166,11 +166,11 @@ END SYN;
 -- Retrieval info: PRIVATE: wsUsedW NUMERIC "1"
 -- Retrieval info: LIBRARY: altera_mf altera_mf.altera_mf_components.all
 -- Retrieval info: CONSTANT: INTENDED_DEVICE_FAMILY STRING "Cyclone IV E"
--- Retrieval info: CONSTANT: LPM_NUMWORDS NUMERIC "4096"
+-- Retrieval info: CONSTANT: LPM_NUMWORDS NUMERIC "16384"
 -- Retrieval info: CONSTANT: LPM_SHOWAHEAD STRING "OFF"
 -- Retrieval info: CONSTANT: LPM_TYPE STRING "dcfifo"
 -- Retrieval info: CONSTANT: LPM_WIDTH NUMERIC "16"
--- Retrieval info: CONSTANT: LPM_WIDTHU NUMERIC "12"
+-- Retrieval info: CONSTANT: LPM_WIDTHU NUMERIC "14"
 -- Retrieval info: CONSTANT: OVERFLOW_CHECKING STRING "OFF"
 -- Retrieval info: CONSTANT: RDSYNC_DELAYPIPE NUMERIC "5"
 -- Retrieval info: CONSTANT: READ_ACLR_SYNCH STRING "OFF"
@@ -186,7 +186,7 @@ END SYN;
 -- Retrieval info: USED_PORT: rdreq 0 0 0 0 INPUT NODEFVAL "rdreq"
 -- Retrieval info: USED_PORT: wrclk 0 0 0 0 INPUT NODEFVAL "wrclk"
 -- Retrieval info: USED_PORT: wrreq 0 0 0 0 INPUT NODEFVAL "wrreq"
--- Retrieval info: USED_PORT: wrusedw 0 0 12 0 OUTPUT NODEFVAL "wrusedw[11..0]"
+-- Retrieval info: USED_PORT: wrusedw 0 0 14 0 OUTPUT NODEFVAL "wrusedw[13..0]"
 -- Retrieval info: CONNECT: @aclr 0 0 0 0 aclr 0 0 0 0
 -- Retrieval info: CONNECT: @data 0 0 16 0 data 0 0 16 0
 -- Retrieval info: CONNECT: @rdclk 0 0 0 0 rdclk 0 0 0 0
@@ -195,7 +195,7 @@ END SYN;
 -- Retrieval info: CONNECT: @wrreq 0 0 0 0 wrreq 0 0 0 0
 -- Retrieval info: CONNECT: q 0 0 16 0 @q 0 0 16 0
 -- Retrieval info: CONNECT: rdempty 0 0 0 0 @rdempty 0 0 0 0
--- Retrieval info: CONNECT: wrusedw 0 0 12 0 @wrusedw 0 0 12 0
+-- Retrieval info: CONNECT: wrusedw 0 0 14 0 @wrusedw 0 0 14 0
 -- Retrieval info: GEN_FILE: TYPE_NORMAL AudioStreamFifo.vhd TRUE
 -- Retrieval info: GEN_FILE: TYPE_NORMAL AudioStreamFifo.inc FALSE
 -- Retrieval info: GEN_FILE: TYPE_NORMAL AudioStreamFifo.cmp TRUE

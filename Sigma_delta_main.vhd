@@ -53,7 +53,7 @@ architecture Sigma_delta_modulator of Sigma_delta_main is
     -- ##############################################
     -- # signals related to audio stream
     -- ##############################################
-    signal wrusedw_s        : unsigned(11 downto 0);
+    signal wrusedw_s        : unsigned(13 downto 0);
     signal space_left_s     : unsigned(15 downto 0); 
     signal fifo_wr_rq_s     : std_ulogic;
     signal word_s           : std_ulogic_vector(15 downto 0);
@@ -121,9 +121,9 @@ begin
         mod_clk_i         => mod_clk_s,
         sample_i          => resize(audio_sample_s, dac_bits + 1),    --signed(signed_sig_gen_s(dac_bits) & signed_sig_gen_s(dac_bits-2 downto 0)), -- drop bit(dac_bits-1)
         bitstream_o       => bitstream_s,
-        rst_n_i           => reset_n_i,
-        dbg_chan0_o       => dbg_data_a(0),
-        dbg_chan1_o       => dbg_data_a(1)
+        rst_n_i           => reset_n_i
+        --dbg_chan0_o       => dbg_data_a(0),
+        --dbg_chan1_o       => dbg_data_a(1)
         --dbg_chan2_o       => dbg_data_a(2),
         --dbg_chan3_o       => dbg_data_a(3)
     );

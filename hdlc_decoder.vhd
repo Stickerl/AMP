@@ -12,11 +12,13 @@ port (
     flag_received_o     :   out std_ulogic :='0';
     fifo_wr_rq_o        :   out std_ulogic;
     word_o              :   out std_ulogic_vector(15 downto 0)
+    --dbg_chan0_o         :   out std_ulogic_vector(dbg_word_size_c-1 downto 0) := (others => '0');
+    --dbg_chan1_o         :   out std_ulogic_vector(dbg_word_size_c-1 downto 0) := (others => '0')
 );
 end hdlc_decoder;
 
 architecture hdlc_protocol of hdlc_decoder is
-    type states_t is (WAIT_FOR_START, RESET_OUTPUTS, DECODE_BYTE, ESCAPE, FLAG_DETECTED, STORE_BYTE);
+    type states_t is (WAIT_FOR_START, RESET_OUTPUTS, DECODE_BYTE, ESCAPE, FLAG_DETECTED, STORE_BYTE, PASS_WORD);
     signal state_s          :   states_t := WAIT_FOR_START;
     signal first_byte_s     :   std_ulogic :='0';
     signal cached_byte_s    :   std_ulogic_vector(7 downto 0);
@@ -78,12 +80,17 @@ begin
                     if first_byte_s = '1' then
                         word_s(15 downto 8) <= cached_byte_s;
                         first_byte_s <= '0';
+                        state_s <= RESET_OUTPUTS;
                     else
                         word_s(7 downto 0) <= cached_byte_s;
                         first_byte_s <= '1';
-                        fifo_wr_rq_o <= '1';
-                        word_o <= word_s;
+                        state_s <= PASS_WORD;
+                        
                     end if;
+                    
+                when PASS_WORD =>
+                    word_o <= word_s;
+                    fifo_wr_rq_o <= '1';
                     state_s <= RESET_OUTPUTS;
                     
                 when others =>
