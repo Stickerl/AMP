@@ -9,10 +9,10 @@ port (mod_clk_i         :   in  std_ulogic;
       sample_i          :   in  signed (dac_bits downto 0) :=(others=> '0'); -- input for loop
       bitstream_o       :   out std_ulogic; -- output of loop
       
-      rst_n_i           :   in  std_ulogic
+      rst_n_i           :   in  std_ulogic;
         
-      --dbg_chan0_o       :   out std_ulogic_vector(dbg_word_size_c-1 downto 0) := (others => '0');
-      --dbg_chan1_o       :   out std_ulogic_vector(dbg_word_size_c-1 downto 0) := (others => '0')
+      dbg_chan0_o       :   out std_ulogic_vector(dbg_word_size_c-1 downto 0) := (others => '0');
+      dbg_chan1_o       :   out std_ulogic_vector(dbg_word_size_c-1 downto 0) := (others => '0')
       --dbg_chan2_o       :   out std_ulogic_vector(dbg_word_size_c-1 downto 0) := (others => '0');
       --dbg_chan3_o       :   out std_ulogic_vector(dbg_word_size_c-1 downto 0) := (others => '0')
       );
@@ -57,8 +57,8 @@ begin
             --feedback_v  := (others => '0');
             bitstream_s <= '0';
             toggle_s    <= '0';
-            --dbg_chan0_o <= (others => '0');
-            --dbg_chan1_o <= (others => '0');
+            dbg_chan0_o <= (others => '0');
+            dbg_chan1_o <= (others => '0');
             
         elsif mod_clk_i' event and mod_clk_i = '1' then
             --ext_sempl_v := resize(resize(sample_i, ext_sempl_v'length) * koeff_b1_c, ext_sempl_v'length); -- extend input to 32 bit and apply b1
@@ -72,8 +72,8 @@ begin
             end if;
             bitstream_s  <= not std_ulogic(reg_s(31));
             toggle_s     <= not(toggle_s);
-            --dbg_chan0_o      <= toggle_s & bitstream_s & std_ulogic_vector(ext_sempl_s(31) & ext_sempl_s(29 downto 16));
-            --dbg_chan1_o      <= toggle_s & std_ulogic_vector(ext_sempl_s(15 downto 0));
+            dbg_chan0_o      <= toggle_s & bitstream_s & std_ulogic_vector(ext_sempl_s(31) & ext_sempl_s(29 downto 16));
+            dbg_chan1_o      <= toggle_s & std_ulogic_vector(ext_sempl_s(15 downto 0));
         end if;
     end process;
 end FirstOrder;

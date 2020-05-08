@@ -121,9 +121,9 @@ begin
         mod_clk_i         => mod_clk_s,
         sample_i          => resize(audio_sample_s, dac_bits + 1),    --signed(signed_sig_gen_s(dac_bits) & signed_sig_gen_s(dac_bits-2 downto 0)), -- drop bit(dac_bits-1)
         bitstream_o       => bitstream_s,
-        rst_n_i           => reset_n_i
-        --dbg_chan0_o       => dbg_data_a(0),
-        --dbg_chan1_o       => dbg_data_a(1)
+        rst_n_i           => reset_n_i,
+        dbg_chan0_o       => dbg_data_a(0),
+        dbg_chan1_o       => dbg_data_a(1)
         --dbg_chan2_o       => dbg_data_a(2),
         --dbg_chan3_o       => dbg_data_a(3)
     );

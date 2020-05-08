@@ -12,8 +12,6 @@ port (
     flag_received_o     :   out std_ulogic :='0';
     fifo_wr_rq_o        :   out std_ulogic;
     word_o              :   out std_ulogic_vector(15 downto 0)
-    --dbg_chan0_o         :   out std_ulogic_vector(dbg_word_size_c-1 downto 0) := (others => '0');
-    --dbg_chan1_o         :   out std_ulogic_vector(dbg_word_size_c-1 downto 0) := (others => '0')
 );
 end hdlc_decoder;
 
