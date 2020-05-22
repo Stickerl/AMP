@@ -107,8 +107,8 @@ begin
     -- sys_clk(50MHz) / 4 = 12.5MHz, clk for debugging bus 
     dbgclk_psc          : entity work.GenFreq port map (reset_n_i, sys_clk_s, x"0000_0004", dbg_clk_s);
     
-    -- sys_clk(50MHz) / 1040 = 48.08kHz, sample rate for audio data
-    sample_clk_psc      : entity work.GenFreq port map (reset_n_i, sys_clk_s, x"0000_0410", sample_clk_s);
+    -- sys_clk(50MHz) / 1134 = 44.092 kHz, sample rate for audio data
+    sample_clk_psc      : entity work.GenFreq port map (reset_n_i, sys_clk_s, x"0000_046E", sample_clk_s);
     
     -- sys_clk(50MHz) / 520 = 96.15kHz, read clk for embedded signal generator (signal from LUT)
     sign_gen_clk_psc    : entity work.GenFreq port map (reset_n_i, sys_clk_s, x"0000_0208", sign_gen_clk_s);
