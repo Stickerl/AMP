@@ -13969,8 +13969,8 @@ Source: www.sumida.com/products/pdf/CEP125.pdf</description>
 <part name="R2" library="eagle-ltspice" deviceset="R" device="0207/10" value="270"/>
 <part name="GND_5V0" library="supply1" deviceset="GND" device=""/>
 <part name="GND5" library="supply1" deviceset="GND" device=""/>
-<part name="R3" library="eagle-ltspice" deviceset="R" device="0207/10" value="1k"/>
-<part name="R4" library="eagle-ltspice" deviceset="R" device="0207/10" value="1k"/>
+<part name="R3" library="eagle-ltspice" deviceset="R" device="0207/10" value="360"/>
+<part name="R4" library="eagle-ltspice" deviceset="R" device="0207/10" value="360"/>
 <part name="GND6" library="supply1" deviceset="GND" device=""/>
 <part name="SUPPLY1" library="supply2" deviceset="GND" device="" value="F_GND"/>
 <part name="SUPPLY2" library="supply2" deviceset="GND" device="" value="F_GND"/>

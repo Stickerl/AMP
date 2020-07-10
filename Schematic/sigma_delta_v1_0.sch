@@ -14521,13 +14521,6 @@ Source: http://cache.national.com/ds/LM/LM340.pdf</description>
 <pinref part="U$1" gate="G$1" pin="VB"/>
 </segment>
 </net>
-<net name="N$18" class="0">
-<segment>
-<pinref part="C1" gate="G$1" pin="1"/>
-<wire x1="157.48" y1="175.26" x2="170.18" y2="175.26" width="0.1524" layer="91"/>
-<pinref part="U$1" gate="G$1" pin="VS"/>
-</segment>
-</net>
 <net name="N$9" class="0">
 <segment>
 <pinref part="U$2" gate="G$1" pin="D"/>
@@ -14543,6 +14536,15 @@ Source: http://cache.national.com/ds/LM/LM340.pdf</description>
 <pinref part="D3" gate="1" pin="A"/>
 <wire x1="223.52" y1="160.02" x2="223.52" y2="170.18" width="0.1524" layer="91"/>
 <junction x="223.52" y="160.02"/>
+<wire x1="208.28" y1="160.02" x2="177.8" y2="160.02" width="0.1524" layer="91"/>
+<wire x1="177.8" y1="160.02" x2="177.8" y2="152.4" width="0.1524" layer="91"/>
+<pinref part="C1" gate="G$1" pin="1"/>
+<wire x1="157.48" y1="175.26" x2="165.1" y2="175.26" width="0.1524" layer="91"/>
+<pinref part="U$1" gate="G$1" pin="VS"/>
+<wire x1="165.1" y1="175.26" x2="170.18" y2="175.26" width="0.1524" layer="91"/>
+<wire x1="177.8" y1="152.4" x2="165.1" y2="152.4" width="0.1524" layer="91"/>
+<wire x1="165.1" y1="152.4" x2="165.1" y2="175.26" width="0.1524" layer="91"/>
+<junction x="165.1" y="175.26"/>
 </segment>
 </net>
 <net name="N$10" class="0">
