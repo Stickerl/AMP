@@ -59,6 +59,32 @@
 <description>&lt;b&gt;https://componentsearchengine.com&lt;/b&gt;&lt;p&gt;
 &lt;author&gt;Created by SamacSys&lt;/author&gt;</description>
 <packages>
+<package name="SOT65P210X100-6N">
+<description>&lt;b&gt;SOT-363-1&lt;/b&gt;&lt;br&gt;
+</description>
+<smd name="1" x="-1.1" y="0.65" dx="0.75" dy="0.4" layer="1" rot="R0" />
+<smd name="2" x="-1.1" y="0" dx="0.75" dy="0.4" layer="1" rot="R0" />
+<smd name="3" x="-1.1" y="-0.65" dx="0.75" dy="0.4" layer="1" rot="R0" />
+<smd name="4" x="1.1" y="-0.65" dx="0.75" dy="0.4" layer="1" rot="R0" />
+<smd name="5" x="1.1" y="0" dx="0.75" dy="0.4" layer="1" rot="R0" />
+<smd name="6" x="1.1" y="0.65" dx="0.75" dy="0.4" layer="1" rot="R0" />
+<text x="0" y="0" align="center" size="1.27" layer="25" rot="R0">&gt;NAME</text>
+<text x="0" y="0" align="center" size="1.27" layer="27" rot="R0">&gt;VALUE</text>
+<wire x1="-1.725" y1="1.35" x2="1.725" y2="1.35" width="0.05" layer="51" />
+<wire x1="1.725" y1="1.35" x2="1.725" y2="-1.35" width="0.05" layer="51" />
+<wire x1="1.725" y1="-1.35" x2="-1.725" y2="-1.35" width="0.05" layer="51" />
+<wire x1="-1.725" y1="-1.35" x2="-1.725" y2="1.35" width="0.05" layer="51" />
+<wire x1="-0.625" y1="1" x2="0.625" y2="1" width="0.1" layer="51" />
+<wire x1="0.625" y1="1" x2="0.625" y2="-1" width="0.1" layer="51" />
+<wire x1="0.625" y1="-1" x2="-0.625" y2="-1" width="0.1" layer="51" />
+<wire x1="-0.625" y1="-1" x2="-0.625" y2="1" width="0.1" layer="51" />
+<wire x1="-0.625" y1="0.35" x2="0.025" y2="1" width="0.1" layer="51" />
+<wire x1="-0.375" y1="1" x2="0.375" y2="1" width="0.2" layer="21" />
+<wire x1="0.375" y1="1" x2="0.375" y2="-1" width="0.2" layer="21" />
+<wire x1="0.375" y1="-1" x2="-0.375" y2="-1" width="0.2" layer="21" />
+<wire x1="-0.375" y1="-1" x2="-0.375" y2="1" width="0.2" layer="21" />
+<wire x1="-1.475" y1="1.2" x2="-0.725" y2="1.2" width="0.2" layer="21" />
+</package>
 <package name="09HCP330M50">
 <description>&lt;b&gt;09HCP-330M-50-1&lt;/b&gt;&lt;br&gt;
 </description>
@@ -143,6 +169,20 @@
 </package>
 </packages>
 <symbols>
+<symbol name="BSD235NH6327XT">
+<wire x1="5.08" y1="2.54" x2="35.56" y2="2.54" width="0.254" layer="94" />
+<wire x1="35.56" y1="-7.62" x2="35.56" y2="2.54" width="0.254" layer="94" />
+<wire x1="35.56" y1="-7.62" x2="5.08" y2="-7.62" width="0.254" layer="94" />
+<wire x1="5.08" y1="2.54" x2="5.08" y2="-7.62" width="0.254" layer="94" />
+<text x="36.83" y="7.62" align="center-left" size="1.778" layer="95">&gt;NAME</text>
+<text x="36.83" y="5.08" align="center-left" size="1.778" layer="96">&gt;VALUE</text>
+<pin name="ANODE_1" x="0" y="0" length="middle" direction="io" rot="R0" />
+<pin name="BASE_1" x="0" y="-2.54" length="middle" direction="io" rot="R0" />
+<pin name="CATHODE_1" x="0" y="-5.08" length="middle" direction="io" rot="R0" />
+<pin name="CATHODE_2" x="40.64" y="0" length="middle" direction="io" rot="R180" />
+<pin name="BASE_2" x="40.64" y="-2.54" length="middle" direction="io" rot="R180" />
+<pin name="ANODE_2" x="40.64" y="-5.08" length="middle" direction="io" rot="R180" />
+</symbol>
 <symbol name="09HCP-330M-50">
 <wire x1="5.08" y1="0" x2="7.62" y2="0" width="0.254" layer="94" curve="-175.4" />
 <wire x1="7.62" y1="0" x2="10.16" y2="0" width="0.254" layer="94" curve="-175.4" />
@@ -184,6 +224,35 @@
 </symbol>
 </symbols>
 <devicesets>
+<deviceset name="BSD235NH6327XT" prefix="Q">
+<description>&lt;b&gt;Infineon BSD235NH6327XT Dual N-channel MOSFET Transistor, 0.95 A, 20 V, 6-Pin SOT-363&lt;/b&gt;&lt;p&gt;
+Source: &lt;a href="https://www.mouser.co.uk/datasheet/2/196/BSD235N_Rev2 5-1225272.pdf"&gt; Datasheet &lt;/a&gt;</description>
+<gates>
+<gate name="G$1" symbol="BSD235NH6327XT" x="0" y="0" />
+</gates>
+<devices>
+<device name="" package="SOT65P210X100-6N">
+<connects>
+<connect gate="G$1" pin="ANODE_1" pad="1" />
+<connect gate="G$1" pin="BASE_1" pad="2" />
+<connect gate="G$1" pin="CATHODE_1" pad="3" />
+<connect gate="G$1" pin="ANODE_2" pad="4" />
+<connect gate="G$1" pin="BASE_2" pad="5" />
+<connect gate="G$1" pin="CATHODE_2" pad="6" />
+</connects>
+<technologies>
+<technology name="">
+<attribute name="Mouser_Part_Number" value="726-BSD235NH6327XTSA" constant="no" />
+<attribute name="Mouser_Price-Stock" value="https://www.mouser.co.uk/ProductDetail/Infineon-Technologies/BSD235NH6327XT?qs=zO0nedAqnNLj5BYSlH7kJg%3D%3D" constant="no" />
+<attribute name="Manufacturer_Name" value="Infineon" constant="no" />
+<attribute name="Manufacturer_Part_Number" value="BSD235NH6327XT" constant="no" />
+<attribute name="Description" value="Infineon BSD235NH6327XT Dual N-channel MOSFET Transistor, 0.95 A, 20 V, 6-Pin SOT-363" constant="no" />
+<attribute name="Height" value="1mm" constant="no" />
+</technology>
+</technologies>
+</device>
+</devices>
+</deviceset>
 <deviceset name="09HCP-330M-50" prefix="L">
 <description>&lt;b&gt;Fixed Inductors 33uH 20% RF CHOKE High Current&lt;/b&gt;&lt;p&gt;
 Source: &lt;a href="https://www.arrow.com/en/products/09hcp-330m-50/fastron-gmbh"&gt; Datasheet &lt;/a&gt;</description>
