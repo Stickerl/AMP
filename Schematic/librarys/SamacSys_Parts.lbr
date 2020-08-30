@@ -59,6 +59,26 @@
 <description>&lt;b&gt;https://componentsearchengine.com&lt;/b&gt;&lt;p&gt;
 &lt;author&gt;Created by SamacSys&lt;/author&gt;</description>
 <packages>
+<package name="09HCP330M50">
+<description>&lt;b&gt;09HCP-330M-50-1&lt;/b&gt;&lt;br&gt;
+</description>
+<pad name="1" x="0.000" y="0.000" drill="1" diameter="1.500" />
+<pad name="2" x="7.000" y="0.000" drill="1" diameter="1.500" />
+<text x="3.500" y="0.000" align="center" size="1.27" layer="25" rot="R0">&gt;NAME</text>
+<text x="3.500" y="0.000" align="center" size="1.27" layer="27" rot="R0">&gt;VALUE</text>
+<wire x1="-3.25" y1="6.75" x2="10.25" y2="6.75" width="0.1" layer="51" />
+<wire x1="10.25" y1="6.75" x2="10.25" y2="-6.75" width="0.1" layer="51" />
+<wire x1="10.25" y1="-6.75" x2="-3.25" y2="-6.75" width="0.1" layer="51" />
+<wire x1="-3.25" y1="-6.75" x2="-3.25" y2="6.75" width="0.1" layer="51" />
+<wire x1="-2.75" y1="0" x2="-2.75" y2="0" width="0.2" layer="51" />
+<wire x1="-2.750" y1="0.000" x2="9.750" y2="0.000" width="0.2" layer="51" curve="180.0" />
+<wire x1="9.75" y1="0" x2="9.75" y2="0" width="0.2" layer="51" />
+<wire x1="9.750" y1="0.000" x2="-2.750" y2="0.000" width="0.2" layer="51" curve="180.0" />
+<wire x1="-2.75" y1="0" x2="-2.75" y2="0" width="0.1" layer="21" />
+<wire x1="-2.750" y1="0.000" x2="9.750" y2="0.000" width="0.1" layer="21" curve="180.0" />
+<wire x1="9.75" y1="0" x2="9.75" y2="0" width="0.1" layer="21" />
+<wire x1="9.750" y1="0.000" x2="-2.750" y2="0.000" width="0.1" layer="21" curve="180.0" />
+</package>
 <package name="SJ13523N">
 <description>&lt;b&gt;SJ1-3523N-1&lt;/b&gt;&lt;br&gt;
 </description>
@@ -123,6 +143,16 @@
 </package>
 </packages>
 <symbols>
+<symbol name="09HCP-330M-50">
+<wire x1="5.08" y1="0" x2="7.62" y2="0" width="0.254" layer="94" curve="-175.4" />
+<wire x1="7.62" y1="0" x2="10.16" y2="0" width="0.254" layer="94" curve="-175.4" />
+<wire x1="10.16" y1="0" x2="12.7" y2="0" width="0.254" layer="94" curve="-175.4" />
+<wire x1="12.7" y1="0" x2="15.24" y2="0" width="0.254" layer="94" curve="-175.4" />
+<text x="16.51" y="6.35" align="center-left" size="1.778" layer="95">&gt;NAME</text>
+<text x="16.51" y="3.81" align="center-left" size="1.778" layer="96">&gt;VALUE</text>
+<pin name="1" x="0" y="0" visible="pad" length="middle" direction="io" rot="R0" />
+<pin name="2" x="20.32" y="0" visible="pad" length="middle" direction="io" rot="R180" />
+</symbol>
 <symbol name="SJ1-3523N">
 <wire x1="5.08" y1="2.54" x2="30.48" y2="2.54" width="0.254" layer="94" />
 <wire x1="30.48" y1="-10.16" x2="30.48" y2="2.54" width="0.254" layer="94" />
@@ -154,6 +184,31 @@
 </symbol>
 </symbols>
 <devicesets>
+<deviceset name="09HCP-330M-50" prefix="L">
+<description>&lt;b&gt;Fixed Inductors 33uH 20% RF CHOKE High Current&lt;/b&gt;&lt;p&gt;
+Source: &lt;a href="https://www.arrow.com/en/products/09hcp-330m-50/fastron-gmbh"&gt; Datasheet &lt;/a&gt;</description>
+<gates>
+<gate name="G$1" symbol="09HCP-330M-50" x="0" y="0" />
+</gates>
+<devices>
+<device name="" package="09HCP330M50">
+<connects>
+<connect gate="G$1" pin="1" pad="1" />
+<connect gate="G$1" pin="2" pad="2" />
+</connects>
+<technologies>
+<technology name="">
+<attribute name="Mouser_Part_Number" value="434-09HCP-330M" constant="no" />
+<attribute name="Mouser_Price-Stock" value="https://www.mouser.co.uk/ProductDetail/Fastron/09HCP-330M-50?qs=igiTrb5Y5PN4qyNn5ArmZQ%3D%3D" constant="no" />
+<attribute name="Manufacturer_Name" value="Fastron" constant="no" />
+<attribute name="Manufacturer_Part_Number" value="09HCP-330M-50" constant="no" />
+<attribute name="Description" value="Fixed Inductors 33uH 20% RF CHOKE High Current" constant="no" />
+<attribute name="Height" value="10.8mm" constant="no" />
+</technology>
+</technologies>
+</device>
+</devices>
+</deviceset>
 <deviceset name="SJ1-3523N" prefix="J">
 <description>&lt;b&gt;Phone Connectors 3.5 MM AUDIO JACK&lt;/b&gt;&lt;p&gt;
 Source: &lt;a href="https://componentsearchengine.com/Datasheets/1/SJ1-3523N.pdf"&gt; Datasheet &lt;/a&gt;</description>
