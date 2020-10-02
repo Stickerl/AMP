@@ -2,6 +2,8 @@
 *.qws
 *.qdf
 *.orig
+*.b#*
+*.s#*
 db/
 greybox_tmp/
 incremental_db/
