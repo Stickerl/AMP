@@ -22297,7 +22297,7 @@ DDEController.pdf</description>
 <part name="VCC_FPGA3" library="supply1" deviceset="VCC" device="" value="VCC_FPGA"/>
 <part name="AVCC_FPGA" library="supply1" deviceset="VCC" device="" value="AVCC_FPGA"/>
 <part name="AGND_FPGA3" library="supply2" deviceset="GND" device="" value="AGND_FPGA"/>
-<part name="L2" library="rcl" deviceset="L-EU" device="L2012C" value="TBD"/>
+<part name="BEAD" library="rcl" deviceset="L-EU" device="L2012C" value="MMZ0603S102HT000"/>
 </parts>
 <sheets>
 <sheet>
@@ -22422,7 +22422,7 @@ transistors</text>
 <instance part="VCC_FPGA3" gate="VCC" x="25.4" y="66.04"/>
 <instance part="AVCC_FPGA" gate="VCC" x="58.42" y="66.04"/>
 <instance part="AGND_FPGA3" gate="GND" x="58.42" y="43.18"/>
-<instance part="L2" gate="G$1" x="40.64" y="48.26" rot="R90"/>
+<instance part="BEAD" gate="G$1" x="40.64" y="48.26" rot="R90"/>
 </instances>
 <busses>
 </busses>
@@ -23054,7 +23054,7 @@ transistors</text>
 <wire x1="25.4" y1="48.26" x2="30.48" y2="48.26" width="0.1524" layer="91"/>
 <wire x1="30.48" y1="48.26" x2="30.48" y2="50.8" width="0.1524" layer="91"/>
 <junction x="25.4" y="48.26"/>
-<pinref part="L2" gate="G$1" pin="1"/>
+<pinref part="BEAD" gate="G$1" pin="1"/>
 <wire x1="35.56" y1="48.26" x2="30.48" y2="48.26" width="0.1524" layer="91"/>
 <junction x="30.48" y="48.26"/>
 </segment>
@@ -23127,7 +23127,7 @@ transistors</text>
 <wire x1="58.42" y1="48.26" x2="58.42" y2="45.72" width="0.1524" layer="91"/>
 <junction x="58.42" y="48.26"/>
 <pinref part="AGND_FPGA3" gate="GND" pin="GND"/>
-<pinref part="L2" gate="G$1" pin="2"/>
+<pinref part="BEAD" gate="G$1" pin="2"/>
 <wire x1="45.72" y1="48.26" x2="50.8" y2="48.26" width="0.1524" layer="91"/>
 <junction x="50.8" y="48.26"/>
 </segment>
