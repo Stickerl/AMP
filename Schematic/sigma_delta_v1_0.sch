@@ -22192,7 +22192,11 @@ DDEController.pdf</description>
 <variantdefs>
 </variantdefs>
 <classes>
-<class number="0" name="default" width="0" drill="0">
+<class number="0" name="default" width="0.1524" drill="0.3048">
+<clearance class="0" value="0.1524"/>
+</class>
+<class number="1" name="FPGA_Domain" width="0.1524" drill="0.3048">
+<clearance class="1" value="0.1524"/>
 </class>
 </classes>
 <parts>
@@ -22293,7 +22297,7 @@ DDEController.pdf</description>
 <part name="C16" library="rcl" deviceset="C-EU" device="C0603" value="1µ"/>
 <part name="C17" library="rcl" deviceset="C-EU" device="C0603" value="0.1µ"/>
 <part name="C18" library="rcl" deviceset="C-EU" device="C0603" value="1µ"/>
-<part name="SUPPLY5" library="supply2" deviceset="GND" device="" value="F_GND"/>
+<part name="SUPPLY5" library="supply2" deviceset="GND" device="" value="GND_FPGA"/>
 <part name="VCC_FPGA3" library="supply1" deviceset="VCC" device="" value="VCC_FPGA"/>
 <part name="AVCC_FPGA" library="supply1" deviceset="VCC" device="" value="AVCC_FPGA"/>
 <part name="AGND_FPGA3" library="supply2" deviceset="GND" device="" value="AGND_FPGA"/>
@@ -22439,7 +22443,7 @@ transistors</text>
 <junction x="35.56" y="162.56"/>
 </segment>
 </net>
-<net name="N$2" class="0">
+<net name="N$2" class="1">
 <segment>
 <wire x1="66.04" y1="180.34" x2="66.04" y2="152.4" width="0.1524" layer="91"/>
 <wire x1="66.04" y1="152.4" x2="66.04" y2="121.92" width="0.1524" layer="91"/>
@@ -22470,7 +22474,7 @@ transistors</text>
 <wire x1="106.68" y1="134.62" x2="116.84" y2="134.62" width="0.1524" layer="91"/>
 </segment>
 </net>
-<net name="N$5" class="0">
+<net name="N$5" class="1">
 <segment>
 <pinref part="R1" gate="G$1" pin="1"/>
 <pinref part="IC5" gate="G$1" pin="ANODE1"/>
@@ -22479,7 +22483,7 @@ transistors</text>
 <wire x1="114.3" y1="175.26" x2="88.9" y2="175.26" width="0.1524" layer="91"/>
 </segment>
 </net>
-<net name="N$6" class="0">
+<net name="N$6" class="1">
 <segment>
 <wire x1="88.9" y1="132.08" x2="116.84" y2="132.08" width="0.1524" layer="91"/>
 <pinref part="R2" gate="G$1" pin="1"/>
@@ -22734,7 +22738,7 @@ transistors</text>
 <junction x="154.94" y="154.94"/>
 </segment>
 </net>
-<net name="VCC_FPGA" class="0">
+<net name="VCC_FPGA" class="1">
 <segment>
 <pinref part="R1" gate="G$1" pin="2"/>
 <wire x1="73.66" y1="175.26" x2="78.74" y2="175.26" width="0.1524" layer="91"/>
@@ -22910,7 +22914,7 @@ transistors</text>
 <wire x1="38.1" y1="91.44" x2="40.64" y2="91.44" width="0.1524" layer="91"/>
 </segment>
 </net>
-<net name="N$29" class="0">
+<net name="N$29" class="1">
 <segment>
 <pinref part="C14" gate="G$1" pin="1"/>
 <pinref part="R18" gate="G$1" pin="1"/>
@@ -22934,7 +22938,7 @@ transistors</text>
 <wire x1="40.64" y1="124.46" x2="38.1" y2="124.46" width="0.1524" layer="91"/>
 </segment>
 </net>
-<net name="N$28" class="0">
+<net name="N$28" class="1">
 <segment>
 <pinref part="C13" gate="G$1" pin="1"/>
 <pinref part="R17" gate="G$1" pin="1"/>
@@ -23045,19 +23049,6 @@ transistors</text>
 <pinref part="C8" gate="G$1" pin="2"/>
 <wire x1="139.7" y1="154.94" x2="142.24" y2="154.94" width="0.1524" layer="91"/>
 </segment>
-<segment>
-<pinref part="SUPPLY5" gate="GND" pin="GND"/>
-<pinref part="C18" gate="G$1" pin="2"/>
-<wire x1="25.4" y1="45.72" x2="25.4" y2="48.26" width="0.1524" layer="91"/>
-<pinref part="C17" gate="G$1" pin="2"/>
-<wire x1="25.4" y1="48.26" x2="25.4" y2="50.8" width="0.1524" layer="91"/>
-<wire x1="25.4" y1="48.26" x2="30.48" y2="48.26" width="0.1524" layer="91"/>
-<wire x1="30.48" y1="48.26" x2="30.48" y2="50.8" width="0.1524" layer="91"/>
-<junction x="25.4" y="48.26"/>
-<pinref part="BEAD" gate="G$1" pin="1"/>
-<wire x1="35.56" y1="48.26" x2="30.48" y2="48.26" width="0.1524" layer="91"/>
-<junction x="30.48" y="48.26"/>
-</segment>
 </net>
 <net name="GND_FPGA" class="0">
 <segment>
@@ -23089,8 +23080,21 @@ transistors</text>
 <junction x="106.68" y="116.84"/>
 <pinref part="U$4" gate="G$2" pin="S"/>
 </segment>
+<segment>
+<pinref part="SUPPLY5" gate="GND" pin="GND"/>
+<pinref part="C18" gate="G$1" pin="2"/>
+<wire x1="25.4" y1="45.72" x2="25.4" y2="48.26" width="0.1524" layer="91"/>
+<pinref part="C17" gate="G$1" pin="2"/>
+<wire x1="25.4" y1="48.26" x2="25.4" y2="50.8" width="0.1524" layer="91"/>
+<wire x1="25.4" y1="48.26" x2="30.48" y2="48.26" width="0.1524" layer="91"/>
+<wire x1="30.48" y1="48.26" x2="30.48" y2="50.8" width="0.1524" layer="91"/>
+<junction x="25.4" y="48.26"/>
+<pinref part="BEAD" gate="G$1" pin="1"/>
+<wire x1="35.56" y1="48.26" x2="30.48" y2="48.26" width="0.1524" layer="91"/>
+<junction x="30.48" y="48.26"/>
+</segment>
 </net>
-<net name="AVCC_FPGA" class="0">
+<net name="AVCC_FPGA" class="1">
 <segment>
 <pinref part="C15" gate="G$1" pin="1"/>
 <wire x1="50.8" y1="58.42" x2="50.8" y2="60.96" width="0.1524" layer="91"/>
@@ -23117,7 +23121,7 @@ transistors</text>
 <pinref part="AVCC_FPGA1" gate="VCC" pin="VCC"/>
 </segment>
 </net>
-<net name="AGND_FPGA" class="0">
+<net name="AGND_FPGA" class="1">
 <segment>
 <pinref part="C16" gate="G$1" pin="2"/>
 <wire x1="58.42" y1="50.8" x2="58.42" y2="48.26" width="0.1524" layer="91"/>
