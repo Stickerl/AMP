@@ -6,7 +6,7 @@
 <setting alwaysvectorfont="no"/>
 <setting verticaltext="up"/>
 </settings>
-<grid distance="0.1" unitdist="inch" unit="inch" style="lines" multiple="1" display="no" altdistance="0.01" altunitdist="inch" altunit="inch"/>
+<grid distance="0.1" unitdist="inch" unit="inch" style="lines" multiple="1" display="yes" altdistance="0.01" altunitdist="inch" altunit="inch"/>
 <layers>
 <layer number="1" name="Top" color="4" fill="1" visible="no" active="no"/>
 <layer number="2" name="Route2" color="1" fill="3" visible="no" active="no"/>
@@ -19192,7 +19192,7 @@ DDEController.pdf</description>
 <part name="GND_FPGA2" library="supply2" deviceset="GND" device="" value="GND_FPGA"/>
 <part name="GND_FPGA" library="supply2" deviceset="GND" device="" value="GND_FPGA"/>
 <part name="GND1" library="supply1" deviceset="GND" device=""/>
-<part name="C1" library="rcl" deviceset="C-US" device="C2220K"/>
+<part name="C1" library="rcl" deviceset="C-EU" device="C0805K"/>
 <part name="C2" library="rcl" deviceset="CPOL-EU" device="UD-6,3X7,7"/>
 <part name="U$3" library="transistor-power" deviceset="BUZ11" device="BV" value="IRF3707"/>
 <part name="R5" library="eagle-ltspice" deviceset="R" device="R0603" value="10"/>
@@ -19204,12 +19204,12 @@ DDEController.pdf</description>
 <part name="GND3" library="supply1" deviceset="GND" device=""/>
 <part name="U$1" library="IR2011" deviceset="IR2011" device=""/>
 <part name="L1" library="SamacSys_Parts" deviceset="09HCP-330M-50" device=""/>
-<part name="C5" library="rcl" deviceset="C-US" device="C2220K"/>
+<part name="C5" library="rcl" deviceset="C-US" device="C2220K" value="330nF"/>
 <part name="D2" library="diode" deviceset="DIODE-" device="DO214AC"/>
 <part name="D3" library="diode" deviceset="DIODE-" device="DO214AC"/>
 <part name="GND4" library="supply1" deviceset="GND" device=""/>
-<part name="F1" library="rcl" deviceset="R-EU_" device="M1206"/>
-<part name="F2" library="rcl" deviceset="R-EU_" device="M1206"/>
+<part name="F1" library="rcl" deviceset="R-EU_" device="M1206" value="5A"/>
+<part name="F2" library="rcl" deviceset="R-EU_" device="M1206" value="5A"/>
 <part name="X1" library="con-phoenix-350" deviceset="1751251" device=""/>
 <part name="GND7" library="supply1" deviceset="GND" device=""/>
 <part name="C9" library="rcl" deviceset="CPOL-EU" device="UD-10X10"/>
@@ -19251,7 +19251,7 @@ DDEController.pdf</description>
 <attribute name="NP" value=""/>
 </part>
 <part name="U$2" library="transistor-power" deviceset="BUZ11" device="BV" value="IRF3707"/>
-<part name="F3" library="rcl" deviceset="R-EU_" device="M1206"/>
+<part name="F3" library="rcl" deviceset="R-EU_" device="M1206" value="5A"/>
 <part name="J1" library="SamacSys_Parts" deviceset="SJ1-3523N" device=""/>
 <part name="VCC_MID2" library="supply1" deviceset="VCC" device="" value="VCC_MID"/>
 <part name="U$4" library="SamacSys_Parts" deviceset="BSD235N" device=""/>
@@ -19282,7 +19282,7 @@ DDEController.pdf</description>
 <part name="AVCC_FPGA" library="supply1" deviceset="VCC" device="" value="AVCC_FPGA"/>
 <part name="AGND_FPGA3" library="supply2" deviceset="GND" device="" value="AGND_FPGA"/>
 <part name="BEAD" library="rcl" deviceset="L-EU" device="L2012C" value="MMZ0603S102HT000"/>
-<part name="SJ2" library="jumper" deviceset="SJ2W" device=""/>
+<part name="SJ2" library="jumper" deviceset="SJ2W" device="W"/>
 </parts>
 <sheets>
 <sheet>
@@ -19293,6 +19293,7 @@ DDEController.pdf</description>
 transistors</text>
 <text x="27.94" y="96.52" size="1.778" layer="91">Place near output
 transistors</text>
+<text x="93.98" y="241.3" size="1.778" layer="91">See maximum current estimation</text>
 </plain>
 <instances>
 <instance part="FRAME1" gate="G$1" x="0" y="0"/>
@@ -19724,7 +19725,6 @@ transistors</text>
 <wire x1="73.66" y1="175.26" x2="78.74" y2="175.26" width="0.1524" layer="91"/>
 <junction x="73.66" y="175.26"/>
 <wire x1="60.96" y1="175.26" x2="73.66" y2="175.26" width="0.1524" layer="91"/>
-<wire x1="73.66" y1="175.26" x2="81.28" y2="175.26" width="0.1524" layer="91"/>
 <pinref part="VCC_FPGA" gate="VCC" pin="VCC"/>
 <wire x1="73.66" y1="175.26" x2="73.66" y2="177.8" width="0.1524" layer="91"/>
 <pinref part="JP1" gate="A" pin="2"/>
@@ -20134,6 +20134,10 @@ transistors</text>
 </nets>
 </sheet>
 </sheets>
+<errors>
+<approved hash="104,1,27.94,116.84,IC1,GND,AGND_FPGA,,,"/>
+<approved hash="104,1,27.94,83.82,IC4,GND,AGND_FPGA,,,"/>
+</errors>
 </schematic>
 </drawing>
 <compatibility>
