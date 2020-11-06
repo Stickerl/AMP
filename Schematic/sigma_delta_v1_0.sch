@@ -6,7 +6,7 @@
 <setting alwaysvectorfont="no"/>
 <setting verticaltext="up"/>
 </settings>
-<grid distance="0.1" unitdist="inch" unit="inch" style="lines" multiple="1" display="yes" altdistance="0.01" altunitdist="inch" altunit="inch"/>
+<grid distance="0.1" unitdist="inch" unit="inch" style="lines" multiple="1" display="no" altdistance="0.01" altunitdist="inch" altunit="inch"/>
 <layers>
 <layer number="1" name="Top" color="4" fill="1" visible="no" active="no"/>
 <layer number="2" name="Route2" color="1" fill="3" visible="no" active="no"/>
@@ -165,11 +165,65 @@
 <text x="-2.54" y="-2.54" size="1.778" layer="96">&gt;VALUE</text>
 <pin name="GND" x="0" y="2.54" visible="off" length="short" direction="sup" rot="R270"/>
 </symbol>
+<symbol name="VDD">
+<wire x1="1.27" y1="-1.905" x2="0" y2="0" width="0.254" layer="94"/>
+<wire x1="0" y1="0" x2="-1.27" y2="-1.905" width="0.254" layer="94"/>
+<wire x1="0" y1="1.27" x2="-1.27" y2="-1.905" width="0.254" layer="94"/>
+<wire x1="1.27" y1="-1.905" x2="0" y2="1.27" width="0.254" layer="94"/>
+<text x="-2.54" y="-2.54" size="1.778" layer="96" rot="R90">&gt;VALUE</text>
+<pin name="VDD" x="0" y="-2.54" visible="off" length="short" direction="sup" rot="R90"/>
+</symbol>
+<symbol name="+3V3">
+<wire x1="1.27" y1="-1.905" x2="0" y2="0" width="0.254" layer="94"/>
+<wire x1="0" y1="0" x2="-1.27" y2="-1.905" width="0.254" layer="94"/>
+<text x="-2.54" y="-5.08" size="1.778" layer="96" rot="R90">&gt;VALUE</text>
+<pin name="+3V3" x="0" y="-2.54" visible="off" length="short" direction="sup" rot="R90"/>
+</symbol>
+<symbol name="VCC/2">
+<wire x1="1.27" y1="-1.905" x2="0" y2="0" width="0.254" layer="94"/>
+<wire x1="0" y1="0" x2="-1.27" y2="-1.905" width="0.254" layer="94"/>
+<wire x1="0" y1="1.778" x2="-1.27" y2="-1.905" width="0.254" layer="94"/>
+<wire x1="1.27" y1="-1.905" x2="0" y2="1.778" width="0.254" layer="94"/>
+<text x="-2.54" y="-2.54" size="1.778" layer="96" rot="R90">&gt;VALUE</text>
+<pin name="VCC/2" x="0" y="-2.54" visible="off" length="short" direction="sup" rot="R90"/>
+</symbol>
+<symbol name="+18V">
+<wire x1="1.27" y1="-1.905" x2="0" y2="0" width="0.254" layer="94"/>
+<wire x1="0" y1="0" x2="-1.27" y2="-1.905" width="0.254" layer="94"/>
+<wire x1="1.27" y1="-0.635" x2="0" y2="1.27" width="0.254" layer="94"/>
+<wire x1="0" y1="1.27" x2="-1.27" y2="-0.635" width="0.254" layer="94"/>
+<wire x1="0" y1="2.54" x2="-1.27" y2="0.635" width="0.254" layer="94"/>
+<wire x1="1.27" y1="0.635" x2="0" y2="2.54" width="0.254" layer="94"/>
+<text x="-2.54" y="-5.08" size="1.778" layer="96" rot="R90">&gt;VALUE</text>
+<pin name="+18V" x="0" y="-2.54" visible="off" length="short" direction="sup" rot="R90"/>
+</symbol>
+<symbol name="+15V">
+<wire x1="1.27" y1="-1.905" x2="0" y2="0" width="0.254" layer="94"/>
+<wire x1="0" y1="0" x2="-1.27" y2="-1.905" width="0.254" layer="94"/>
+<wire x1="1.27" y1="-0.635" x2="0" y2="2.286" width="0.254" layer="94"/>
+<wire x1="0" y1="2.286" x2="-1.27" y2="-0.635" width="0.254" layer="94"/>
+<text x="-2.54" y="-5.08" size="1.778" layer="96" rot="R90">&gt;VALUE</text>
+<pin name="+15V" x="0" y="-2.54" visible="off" length="short" direction="sup" rot="R90"/>
+</symbol>
+<symbol name="+12V">
+<wire x1="1.27" y1="-1.905" x2="0" y2="0" width="0.254" layer="94"/>
+<wire x1="0" y1="0" x2="-1.27" y2="-1.905" width="0.254" layer="94"/>
+<wire x1="1.27" y1="-0.635" x2="0" y2="1.27" width="0.254" layer="94"/>
+<wire x1="0" y1="1.27" x2="-1.27" y2="-0.635" width="0.254" layer="94"/>
+<text x="-2.54" y="-5.08" size="1.778" layer="96" rot="R90">&gt;VALUE</text>
+<pin name="+12V" x="0" y="-2.54" visible="off" length="short" direction="sup" rot="R90"/>
+</symbol>
 <symbol name="VCC">
 <wire x1="1.27" y1="-1.905" x2="0" y2="0" width="0.254" layer="94"/>
 <wire x1="0" y1="0" x2="-1.27" y2="-1.905" width="0.254" layer="94"/>
 <text x="-2.54" y="-2.54" size="1.778" layer="96" rot="R90">&gt;VALUE</text>
 <pin name="VCC" x="0" y="-2.54" visible="off" length="short" direction="sup" rot="R90"/>
+</symbol>
+<symbol name="AGND">
+<wire x1="-1.905" y1="0" x2="1.905" y2="0" width="0.254" layer="94"/>
+<wire x1="-1.0922" y1="-0.508" x2="1.0922" y2="-0.508" width="0.254" layer="94"/>
+<text x="-2.54" y="-5.08" size="1.778" layer="96" rot="R90">&gt;VALUE</text>
+<pin name="AGND" x="0" y="2.54" visible="off" length="short" direction="sup" rot="R270"/>
 </symbol>
 </symbols>
 <devicesets>
@@ -186,10 +240,101 @@
 </device>
 </devices>
 </deviceset>
+<deviceset name="VDD" prefix="VDD">
+<description>&lt;b&gt;SUPPLY SYMBOL&lt;/b&gt;</description>
+<gates>
+<gate name="G$1" symbol="VDD" x="0" y="0"/>
+</gates>
+<devices>
+<device name="">
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+</devices>
+</deviceset>
+<deviceset name="+3V3" prefix="+3V3">
+<description>&lt;b&gt;SUPPLY SYMBOL&lt;/b&gt;</description>
+<gates>
+<gate name="G$1" symbol="+3V3" x="0" y="0"/>
+</gates>
+<devices>
+<device name="">
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+</devices>
+</deviceset>
+<deviceset name="VCC/2" prefix="P+">
+<description>&lt;b&gt;SUPPLY SYMBOL&lt;/b&gt;</description>
+<gates>
+<gate name="G$1" symbol="VCC/2" x="0" y="0"/>
+</gates>
+<devices>
+<device name="">
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+</devices>
+</deviceset>
+<deviceset name="+18V" prefix="P+">
+<description>&lt;b&gt;SUPPLY SYMBOL&lt;/b&gt;</description>
+<gates>
+<gate name="1" symbol="+18V" x="0" y="0"/>
+</gates>
+<devices>
+<device name="">
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+</devices>
+</deviceset>
+<deviceset name="+15V" prefix="P+">
+<description>&lt;b&gt;SUPPLY SYMBOL&lt;/b&gt;</description>
+<gates>
+<gate name="1" symbol="+15V" x="0" y="0"/>
+</gates>
+<devices>
+<device name="">
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+</devices>
+</deviceset>
+<deviceset name="+12V" prefix="P+">
+<description>&lt;b&gt;SUPPLY SYMBOL&lt;/b&gt;</description>
+<gates>
+<gate name="1" symbol="+12V" x="0" y="0"/>
+</gates>
+<devices>
+<device name="">
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+</devices>
+</deviceset>
 <deviceset name="VCC" prefix="P+">
 <description>&lt;b&gt;SUPPLY SYMBOL&lt;/b&gt;</description>
 <gates>
 <gate name="VCC" symbol="VCC" x="0" y="0"/>
+</gates>
+<devices>
+<device name="">
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+</devices>
+</deviceset>
+<deviceset name="AGND" prefix="AGND">
+<description>&lt;b&gt;SUPPLY SYMBOL&lt;/b&gt;</description>
+<gates>
+<gate name="VR1" symbol="AGND" x="0" y="0"/>
 </gates>
 <devices>
 <device name="">
@@ -813,19 +958,19 @@ In this library the device names are the same as the pin names of the symbols, t
 <packages>
 </packages>
 <symbols>
-<symbol name="GND">
+<symbol name="DGND">
 <wire x1="-1.27" y1="0" x2="1.27" y2="0" width="0.254" layer="94"/>
 <wire x1="1.27" y1="0" x2="0" y2="-1.27" width="0.254" layer="94"/>
 <wire x1="0" y1="-1.27" x2="-1.27" y2="0" width="0.254" layer="94"/>
-<text x="-1.905" y="-3.175" size="1.778" layer="96">&gt;VALUE</text>
-<pin name="GND" x="0" y="2.54" visible="off" length="short" direction="sup" rot="R270"/>
+<text x="-2.667" y="-3.175" size="1.778" layer="96">&gt;VALUE</text>
+<pin name="DGND" x="0" y="2.54" visible="off" length="short" direction="sup" rot="R270"/>
 </symbol>
 </symbols>
 <devicesets>
-<deviceset name="GND" prefix="SUPPLY">
+<deviceset name="DGND" prefix="SUPPLY">
 <description>&lt;b&gt;SUPPLY SYMBOL&lt;/b&gt;</description>
 <gates>
-<gate name="GND" symbol="GND" x="0" y="0"/>
+<gate name="G$1" symbol="DGND" x="0" y="0"/>
 </gates>
 <devices>
 <device name="">
@@ -19188,11 +19333,11 @@ DDEController.pdf</description>
 <part name="GND_5V0" library="supply1" deviceset="GND" device=""/>
 <part name="R3" library="eagle-ltspice" deviceset="R" device="R0603" value="360"/>
 <part name="R4" library="eagle-ltspice" deviceset="R" device="R0603" value="360"/>
-<part name="GND_FPGA1" library="supply2" deviceset="GND" device="" value="GND_FPGA"/>
-<part name="GND_FPGA2" library="supply2" deviceset="GND" device="" value="GND_FPGA"/>
-<part name="GND_FPGA" library="supply2" deviceset="GND" device="" value="GND_FPGA"/>
+<part name="GND_FPGA1" library="supply2" deviceset="DGND" device="" value="GND_FPGA"/>
+<part name="GND_FPGA2" library="supply2" deviceset="DGND" device="" value="GND_FPGA"/>
+<part name="GND_FPGA" library="supply2" deviceset="DGND" device="" value="GND_FPGA"/>
 <part name="GND1" library="supply1" deviceset="GND" device=""/>
-<part name="C1" library="rcl" deviceset="C-EU" device="C0805K"/>
+<part name="C1" library="rcl" deviceset="C-EU" device="C0805K" value="4.7µ"/>
 <part name="C2" library="rcl" deviceset="CPOL-EU" device="UD-6,3X7,7"/>
 <part name="U$3" library="transistor-power" deviceset="BUZ11" device="BV" value="IRF3707"/>
 <part name="R5" library="eagle-ltspice" deviceset="R" device="R0603" value="10"/>
@@ -19200,7 +19345,7 @@ DDEController.pdf</description>
 <part name="R7" library="eagle-ltspice" deviceset="R" device="R0603" value="10"/>
 <part name="R8" library="eagle-ltspice" deviceset="R" device="R0603" value="10"/>
 <part name="D1" library="diode" deviceset="DIODE-" device="DO214AC"/>
-<part name="C4" library="rcl" deviceset="C-EU" device="C0805"/>
+<part name="C4" library="rcl" deviceset="C-EU" device="C0805" value="100n"/>
 <part name="GND3" library="supply1" deviceset="GND" device=""/>
 <part name="U$1" library="IR2011" deviceset="IR2011" device=""/>
 <part name="L1" library="SamacSys_Parts" deviceset="09HCP-330M-50" device=""/>
@@ -19214,30 +19359,30 @@ DDEController.pdf</description>
 <part name="GND7" library="supply1" deviceset="GND" device=""/>
 <part name="C9" library="rcl" deviceset="CPOL-EU" device="UD-10X10"/>
 <part name="C10" library="rcl" deviceset="CPOL-EU" device="UD-10X10"/>
-<part name="VCC_HI" library="supply1" deviceset="VCC" device="" value="VCC_HI"/>
-<part name="VCC_MID" library="supply1" deviceset="VCC" device="" value="VCC_MID"/>
-<part name="VCC_12" library="supply1" deviceset="VCC" device="" value="VCC_12"/>
-<part name="VCC_HI2" library="supply1" deviceset="VCC" device="" value="VCC_HI"/>
+<part name="VCC_HI" library="supply1" deviceset="+18V" device="" value="VCC_HI"/>
+<part name="VCC_MID" library="supply1" deviceset="+15V" device="" value="VCC_MID"/>
+<part name="VCC_12" library="supply1" deviceset="+12V" device="" value="VCC_12"/>
+<part name="VCC_HI2" library="supply1" deviceset="+18V" device="" value="VCC_HI"/>
 <part name="C11" library="rcl" deviceset="C-EU" device="C0603" value="330n"/>
 <part name="C12" library="rcl" deviceset="C-EU" device="C0603" value="100n"/>
 <part name="IC2" library="linear" deviceset="MC78M" device="" technology="12CDTG"/>
-<part name="VCC_HI1" library="supply1" deviceset="VCC" device="" value="VCC_HI"/>
+<part name="VCC_HI1" library="supply1" deviceset="+18V" device="" value="VCC_HI"/>
 <part name="GND8" library="supply1" deviceset="GND" device=""/>
 <part name="X2" library="con-phoenix-350" deviceset="1751248" device=""/>
-<part name="VCC_MID1" library="supply1" deviceset="VCC" device="" value="VCC_MID"/>
-<part name="VCC_1" library="supply1" deviceset="VCC" device="" value="VCC_12"/>
+<part name="VCC_MID1" library="supply1" deviceset="+15V" device="" value="VCC_MID"/>
+<part name="VCC_1" library="supply1" deviceset="+12V" device="" value="VCC_12"/>
 <part name="C3" library="rcl" deviceset="CPOL-EU" device="UD-6,3X7,7"/>
 <part name="GND2" library="supply1" deviceset="GND" device=""/>
-<part name="VCC_2" library="supply1" deviceset="VCC" device="" value="VCC_3.3"/>
+<part name="VCC_2" library="supply1" deviceset="+3V3" device="" value="VCC_3.3"/>
 <part name="C6" library="rcl" deviceset="C-EU" device="C0603" value="330n"/>
 <part name="C7" library="rcl" deviceset="C-EU" device="C0603" value="100n"/>
 <part name="VCC_3" library="supply1" deviceset="VCC" device="" value="VCC_12"/>
-<part name="VCC_4" library="supply1" deviceset="VCC" device="" value="VCC_3.3"/>
+<part name="VCC_4" library="supply1" deviceset="+3V3" device="" value="VCC_3.3"/>
 <part name="R9" library="eagle-ltspice" deviceset="R" device="R0603" value="10K-100K"/>
 <part name="R10" library="eagle-ltspice" deviceset="R" device="R0603" value="10K-100K"/>
 <part name="R11" library="eagle-ltspice" deviceset="R" device="R0603" value="10K-100K"/>
 <part name="R12" library="eagle-ltspice" deviceset="R" device="R0603" value="10K-100K"/>
-<part name="VCC_FPGA" library="supply1" deviceset="VCC" device="" value="VCC_FPGA"/>
+<part name="VCC_FPGA" library="supply1" deviceset="VDD" device="" value="VCC_FPGA"/>
 <part name="R13" library="eagle-ltspice" deviceset="R" device="R0603" value="NP"/>
 <part name="GND_5V1" library="supply1" deviceset="GND" device=""/>
 <part name="R14" library="eagle-ltspice" deviceset="R" device="R0603" value="NP"/>
@@ -19253,15 +19398,15 @@ DDEController.pdf</description>
 <part name="U$2" library="transistor-power" deviceset="BUZ11" device="BV" value="IRF3707"/>
 <part name="F3" library="rcl" deviceset="R-EU_" device="M1206" value="5A"/>
 <part name="J1" library="SamacSys_Parts" deviceset="SJ1-3523N" device=""/>
-<part name="VCC_MID2" library="supply1" deviceset="VCC" device="" value="VCC_MID"/>
+<part name="VCC_MID2" library="supply1" deviceset="+15V" device="" value="VCC_MID"/>
 <part name="U$4" library="SamacSys_Parts" deviceset="BSD235N" device=""/>
-<part name="VCC_MID3" library="supply1" deviceset="VCC" device="" value="VCC_MID"/>
+<part name="VCC_MID3" library="supply1" deviceset="+15V" device="" value="VCC_MID"/>
 <part name="SJ1" library="jumper" deviceset="SJ2W" device=""/>
 <part name="IC1" library="linear" deviceset="LM50" device=""/>
 <part name="IC4" library="linear" deviceset="LM50" device=""/>
 <part name="JP1" library="pinhead" deviceset="PINHD-2X3" device="_2.54"/>
-<part name="AGND_FPGA2" library="supply2" deviceset="GND" device="" value="AGND_FPGA"/>
-<part name="AGND_FPGA1" library="supply2" deviceset="GND" device="" value="AGND_FPGA"/>
+<part name="AGND_FPGA2" library="supply1" deviceset="AGND" device="" value="AGND_FPGA"/>
+<part name="AGND_FPGA1" library="supply1" deviceset="AGND" device="" value="AGND_FPGA"/>
 <part name="X4" library="con-phoenix-350" deviceset="1751280" device=""/>
 <part name="IC5" library="SamacSys_Parts" deviceset="ACPL-064L-000E" device=""/>
 <part name="C8" library="rcl" deviceset="C-EU" device="C0603" value="100n"/>
@@ -19270,17 +19415,17 @@ DDEController.pdf</description>
 <part name="R17" library="eagle-ltspice" deviceset="R" device="R0603" value="10"/>
 <part name="R18" library="eagle-ltspice" deviceset="R" device="R0603" value="10"/>
 <part name="C14" library="rcl" deviceset="C-EU" device="C0603"/>
-<part name="AVCC_FPGA1" library="supply1" deviceset="VCC" device="" value="AVCC_FPGA"/>
-<part name="AVCC_FPGA2" library="supply1" deviceset="VCC" device="" value="AVCC_FPGA"/>
+<part name="AVCC_FPGA1" library="supply1" deviceset="VCC/2" device="" value="AVCC_FPGA"/>
+<part name="AVCC_FPGA2" library="supply1" deviceset="VCC/2" device="" value="AVCC_FPGA"/>
 <part name="R19" library="eagle-ltspice" deviceset="R" device="R0603" value="50"/>
 <part name="C15" library="rcl" deviceset="C-EU" device="C0603" value="0.1µ"/>
 <part name="C16" library="rcl" deviceset="C-EU" device="C0603" value="1µ"/>
 <part name="C17" library="rcl" deviceset="C-EU" device="C0603" value="0.1µ"/>
 <part name="C18" library="rcl" deviceset="C-EU" device="C0603" value="1µ"/>
-<part name="SUPPLY5" library="supply2" deviceset="GND" device="" value="GND_FPGA"/>
-<part name="VCC_FPGA3" library="supply1" deviceset="VCC" device="" value="VCC_FPGA"/>
-<part name="AVCC_FPGA" library="supply1" deviceset="VCC" device="" value="AVCC_FPGA"/>
-<part name="AGND_FPGA3" library="supply2" deviceset="GND" device="" value="AGND_FPGA"/>
+<part name="SUPPLY5" library="supply2" deviceset="DGND" device="" value="GND_FPGA"/>
+<part name="VCC_FPGA3" library="supply1" deviceset="VDD" device="" value="VCC_FPGA"/>
+<part name="AVCC_FPGA" library="supply1" deviceset="VCC/2" device="" value="AVCC_FPGA"/>
+<part name="AGND_FPGA3" library="supply1" deviceset="AGND" device="" value="AGND_FPGA"/>
 <part name="BEAD" library="rcl" deviceset="L-EU" device="L2012C" value="MMZ0603S102HT000"/>
 <part name="SJ2" library="jumper" deviceset="SJ2W" device="W"/>
 </parts>
@@ -19303,9 +19448,9 @@ transistors</text>
 <instance part="GND_5V0" gate="1" x="152.4" y="127"/>
 <instance part="R3" gate="G$1" x="157.48" y="177.8" rot="R90"/>
 <instance part="R4" gate="G$1" x="175.26" y="180.34" rot="R90"/>
-<instance part="GND_FPGA1" gate="GND" x="106.68" y="149.86"/>
-<instance part="GND_FPGA2" gate="GND" x="106.68" y="111.76"/>
-<instance part="GND_FPGA" gate="GND" x="60.96" y="144.78"/>
+<instance part="GND_FPGA1" gate="G$1" x="106.68" y="149.86"/>
+<instance part="GND_FPGA2" gate="G$1" x="106.68" y="111.76"/>
+<instance part="GND_FPGA" gate="G$1" x="60.96" y="144.78"/>
 <instance part="GND1" gate="1" x="198.12" y="104.14"/>
 <instance part="C1" gate="G$1" x="218.44" y="165.1" rot="R180"/>
 <instance part="C2" gate="G$1" x="182.88" y="231.14"/>
@@ -19331,31 +19476,31 @@ transistors</text>
 <instance part="GND7" gate="1" x="99.06" y="208.28"/>
 <instance part="C9" gate="G$1" x="88.9" y="231.14"/>
 <instance part="C10" gate="G$1" x="88.9" y="218.44"/>
-<instance part="VCC_HI" gate="VCC" x="81.28" y="243.84"/>
-<instance part="VCC_MID" gate="VCC" x="81.28" y="228.6"/>
-<instance part="VCC_12" gate="VCC" x="190.5" y="246.38"/>
-<instance part="VCC_HI2" gate="VCC" x="157.48" y="251.46"/>
+<instance part="VCC_HI" gate="1" x="81.28" y="243.84"/>
+<instance part="VCC_MID" gate="1" x="81.28" y="228.6"/>
+<instance part="VCC_12" gate="1" x="190.5" y="246.38"/>
+<instance part="VCC_HI2" gate="1" x="157.48" y="251.46"/>
 <instance part="C11" gate="G$1" x="149.86" y="231.14"/>
 <instance part="C12" gate="G$1" x="190.5" y="231.14"/>
 <instance part="IC2" gate="G$1" x="167.64" y="236.22"/>
-<instance part="VCC_HI1" gate="VCC" x="256.54" y="175.26"/>
+<instance part="VCC_HI1" gate="1" x="256.54" y="175.26"/>
 <instance part="GND8" gate="1" x="289.56" y="104.14"/>
 <instance part="X2" gate="-1" x="320.04" y="152.4"/>
 <instance part="X2" gate="-2" x="320.04" y="144.78"/>
-<instance part="VCC_MID1" gate="VCC" x="314.96" y="160.02"/>
-<instance part="VCC_1" gate="VCC" x="198.12" y="190.5"/>
+<instance part="VCC_MID1" gate="1" x="314.96" y="160.02"/>
+<instance part="VCC_1" gate="1" x="198.12" y="190.5"/>
 <instance part="C3" gate="G$1" x="241.3" y="231.14"/>
 <instance part="GND2" gate="1" x="226.06" y="218.44"/>
-<instance part="VCC_2" gate="VCC" x="248.92" y="246.38"/>
+<instance part="VCC_2" gate="G$1" x="248.92" y="246.38"/>
 <instance part="C6" gate="G$1" x="208.28" y="231.14"/>
 <instance part="C7" gate="G$1" x="248.92" y="231.14"/>
 <instance part="VCC_3" gate="VCC" x="208.28" y="246.38"/>
-<instance part="VCC_4" gate="VCC" x="154.94" y="195.58"/>
+<instance part="VCC_4" gate="G$1" x="154.94" y="195.58"/>
 <instance part="R9" gate="G$1" x="248.92" y="142.24"/>
 <instance part="R10" gate="G$1" x="248.92" y="109.22"/>
 <instance part="R11" gate="G$1" x="99.06" y="116.84"/>
 <instance part="R12" gate="G$1" x="99.06" y="154.94"/>
-<instance part="VCC_FPGA" gate="VCC" x="73.66" y="180.34"/>
+<instance part="VCC_FPGA" gate="G$1" x="73.66" y="180.34"/>
 <instance part="R13" gate="G$1" x="165.1" y="142.24" rot="R90"/>
 <instance part="GND_5V1" gate="1" x="165.1" y="127"/>
 <instance part="R14" gate="G$1" x="182.88" y="129.54" rot="R90"/>
@@ -19372,16 +19517,16 @@ transistors</text>
 <instance part="U$2" gate="1" x="254" y="149.86"/>
 <instance part="F3" gate="G$1" x="106.68" y="213.36"/>
 <instance part="J1" gate="G$1" x="259.08" y="187.96"/>
-<instance part="VCC_MID2" gate="VCC" x="256.54" y="198.12"/>
+<instance part="VCC_MID2" gate="1" x="256.54" y="198.12"/>
 <instance part="U$4" gate="G$1" x="106.68" y="165.1"/>
 <instance part="U$4" gate="G$2" x="106.68" y="124.46"/>
-<instance part="VCC_MID3" gate="VCC" x="142.24" y="251.46"/>
+<instance part="VCC_MID3" gate="1" x="142.24" y="251.46"/>
 <instance part="SJ1" gate="G$1" x="149.86" y="243.84" rot="R90"/>
 <instance part="IC1" gate="G$1" x="27.94" y="124.46"/>
 <instance part="IC4" gate="G$1" x="27.94" y="91.44"/>
 <instance part="JP1" gate="A" x="45.72" y="152.4"/>
-<instance part="AGND_FPGA2" gate="GND" x="27.94" y="76.2"/>
-<instance part="AGND_FPGA1" gate="GND" x="27.94" y="109.22"/>
+<instance part="AGND_FPGA2" gate="VR1" x="27.94" y="76.2"/>
+<instance part="AGND_FPGA1" gate="VR1" x="27.94" y="109.22"/>
 <instance part="X4" gate="-1" x="25.4" y="154.94" rot="R180"/>
 <instance part="X4" gate="-2" x="25.4" y="175.26" rot="R180"/>
 <instance part="X4" gate="-3" x="25.4" y="162.56" rot="R180"/>
@@ -19395,17 +19540,17 @@ transistors</text>
 <instance part="R17" gate="G$1" x="45.72" y="91.44" rot="R180"/>
 <instance part="R18" gate="G$1" x="45.72" y="124.46" rot="R180"/>
 <instance part="C14" gate="G$1" x="53.34" y="119.38"/>
-<instance part="AVCC_FPGA1" gate="VCC" x="15.24" y="129.54"/>
-<instance part="AVCC_FPGA2" gate="VCC" x="15.24" y="96.52"/>
+<instance part="AVCC_FPGA1" gate="G$1" x="15.24" y="129.54"/>
+<instance part="AVCC_FPGA2" gate="G$1" x="15.24" y="96.52"/>
 <instance part="R19" gate="G$1" x="40.64" y="60.96" rot="R180"/>
 <instance part="C15" gate="G$1" x="50.8" y="55.88"/>
 <instance part="C16" gate="G$1" x="58.42" y="55.88"/>
 <instance part="C17" gate="G$1" x="30.48" y="55.88"/>
 <instance part="C18" gate="G$1" x="25.4" y="55.88"/>
-<instance part="SUPPLY5" gate="GND" x="25.4" y="43.18"/>
-<instance part="VCC_FPGA3" gate="VCC" x="25.4" y="66.04"/>
-<instance part="AVCC_FPGA" gate="VCC" x="58.42" y="66.04"/>
-<instance part="AGND_FPGA3" gate="GND" x="58.42" y="43.18"/>
+<instance part="SUPPLY5" gate="G$1" x="25.4" y="43.18"/>
+<instance part="VCC_FPGA3" gate="G$1" x="25.4" y="66.04"/>
+<instance part="AVCC_FPGA" gate="G$1" x="58.42" y="66.04"/>
+<instance part="AGND_FPGA3" gate="VR1" x="58.42" y="43.18"/>
 <instance part="BEAD" gate="G$1" x="40.64" y="48.26" rot="R90"/>
 <instance part="SJ2" gate="G$1" x="304.8" y="182.88" rot="R180"/>
 </instances>
@@ -19582,7 +19727,7 @@ transistors</text>
 <wire x1="88.9" y1="236.22" x2="88.9" y2="233.68" width="0.1524" layer="91"/>
 <pinref part="F1" gate="G$1" pin="1"/>
 <wire x1="101.6" y1="236.22" x2="88.9" y2="236.22" width="0.1524" layer="91"/>
-<pinref part="VCC_HI" gate="VCC" pin="VCC"/>
+<pinref part="VCC_HI" gate="1" pin="+18V"/>
 <wire x1="88.9" y1="236.22" x2="81.28" y2="236.22" width="0.1524" layer="91"/>
 <wire x1="81.28" y1="236.22" x2="81.28" y2="241.3" width="0.1524" layer="91"/>
 <junction x="88.9" y="236.22"/>
@@ -19593,7 +19738,7 @@ transistors</text>
 <pinref part="D3" gate="G$1" pin="C"/>
 <wire x1="264.16" y1="167.64" x2="289.56" y2="167.64" width="0.1524" layer="91"/>
 <wire x1="289.56" y1="152.4" x2="289.56" y2="167.64" width="0.1524" layer="91"/>
-<pinref part="VCC_HI1" gate="VCC" pin="VCC"/>
+<pinref part="VCC_HI1" gate="1" pin="+18V"/>
 <wire x1="256.54" y1="167.64" x2="256.54" y2="172.72" width="0.1524" layer="91"/>
 <junction x="256.54" y="167.64"/>
 <pinref part="Q3" gate="G$1" pin="D"/>
@@ -19603,7 +19748,7 @@ transistors</text>
 </segment>
 <segment>
 <pinref part="SJ1" gate="G$1" pin="3"/>
-<pinref part="VCC_HI2" gate="VCC" pin="VCC"/>
+<pinref part="VCC_HI2" gate="1" pin="+18V"/>
 <wire x1="154.94" y1="243.84" x2="157.48" y2="243.84" width="0.1524" layer="91"/>
 <wire x1="157.48" y1="243.84" x2="157.48" y2="248.92" width="0.1524" layer="91"/>
 </segment>
@@ -19619,22 +19764,22 @@ transistors</text>
 <junction x="88.9" y="223.52"/>
 <wire x1="88.9" y1="223.52" x2="81.28" y2="223.52" width="0.1524" layer="91"/>
 <wire x1="81.28" y1="223.52" x2="81.28" y2="226.06" width="0.1524" layer="91"/>
-<pinref part="VCC_MID" gate="VCC" pin="VCC"/>
+<pinref part="VCC_MID" gate="1" pin="+15V"/>
 </segment>
 <segment>
 <pinref part="X2" gate="-1" pin="K"/>
 <wire x1="317.5" y1="152.4" x2="314.96" y2="152.4" width="0.1524" layer="91"/>
 <wire x1="314.96" y1="152.4" x2="314.96" y2="157.48" width="0.1524" layer="91"/>
-<pinref part="VCC_MID1" gate="VCC" pin="VCC"/>
+<pinref part="VCC_MID1" gate="1" pin="+15V"/>
 </segment>
 <segment>
 <pinref part="SJ1" gate="G$1" pin="1"/>
-<pinref part="VCC_MID3" gate="VCC" pin="VCC"/>
+<pinref part="VCC_MID3" gate="1" pin="+15V"/>
 <wire x1="144.78" y1="243.84" x2="142.24" y2="243.84" width="0.1524" layer="91"/>
 <wire x1="142.24" y1="243.84" x2="142.24" y2="248.92" width="0.1524" layer="91"/>
 </segment>
 <segment>
-<pinref part="VCC_MID2" gate="VCC" pin="VCC"/>
+<pinref part="VCC_MID2" gate="1" pin="+15V"/>
 <pinref part="J1" gate="G$1" pin="SLEEVE"/>
 <wire x1="256.54" y1="195.58" x2="256.54" y2="187.96" width="0.1524" layer="91"/>
 <wire x1="256.54" y1="187.96" x2="259.08" y2="187.96" width="0.1524" layer="91"/>
@@ -19643,7 +19788,7 @@ transistors</text>
 <net name="VCC_12" class="0">
 <segment>
 <wire x1="190.5" y1="233.68" x2="190.5" y2="236.22" width="0.1524" layer="91"/>
-<pinref part="VCC_12" gate="VCC" pin="VCC"/>
+<pinref part="VCC_12" gate="1" pin="+12V"/>
 <pinref part="C12" gate="G$1" pin="1"/>
 <wire x1="190.5" y1="236.22" x2="190.5" y2="243.84" width="0.1524" layer="91"/>
 <wire x1="182.88" y1="236.22" x2="182.88" y2="233.68" width="0.1524" layer="91"/>
@@ -19656,7 +19801,7 @@ transistors</text>
 </segment>
 <segment>
 <pinref part="U$1" gate="G$1" pin="VCC"/>
-<pinref part="VCC_1" gate="VCC" pin="VCC"/>
+<pinref part="VCC_1" gate="1" pin="+12V"/>
 <wire x1="198.12" y1="162.56" x2="198.12" y2="175.26" width="0.1524" layer="91"/>
 <pinref part="D1" gate="G$1" pin="A"/>
 <pinref part="C4" gate="G$1" pin="1"/>
@@ -19683,7 +19828,7 @@ transistors</text>
 <wire x1="236.22" y1="236.22" x2="241.3" y2="236.22" width="0.1524" layer="91"/>
 <wire x1="241.3" y1="236.22" x2="248.92" y2="236.22" width="0.1524" layer="91"/>
 <wire x1="248.92" y1="236.22" x2="248.92" y2="233.68" width="0.1524" layer="91"/>
-<pinref part="VCC_2" gate="VCC" pin="VCC"/>
+<pinref part="VCC_2" gate="G$1" pin="+3V3"/>
 <wire x1="248.92" y1="243.84" x2="248.92" y2="236.22" width="0.1524" layer="91"/>
 <pinref part="C3" gate="G$1" pin="+"/>
 <wire x1="241.3" y1="233.68" x2="241.3" y2="236.22" width="0.1524" layer="91"/>
@@ -19699,7 +19844,7 @@ transistors</text>
 <wire x1="157.48" y1="187.96" x2="165.1" y2="187.96" width="0.1524" layer="91"/>
 <wire x1="165.1" y1="187.96" x2="175.26" y2="187.96" width="0.1524" layer="91"/>
 <wire x1="175.26" y1="187.96" x2="175.26" y2="185.42" width="0.1524" layer="91"/>
-<pinref part="VCC_4" gate="VCC" pin="VCC"/>
+<pinref part="VCC_4" gate="G$1" pin="+3V3"/>
 <wire x1="154.94" y1="187.96" x2="154.94" y2="193.04" width="0.1524" layer="91"/>
 <junction x="154.94" y="187.96"/>
 <pinref part="R3" gate="G$1" pin="2"/>
@@ -19725,7 +19870,7 @@ transistors</text>
 <wire x1="73.66" y1="175.26" x2="78.74" y2="175.26" width="0.1524" layer="91"/>
 <junction x="73.66" y="175.26"/>
 <wire x1="60.96" y1="175.26" x2="73.66" y2="175.26" width="0.1524" layer="91"/>
-<pinref part="VCC_FPGA" gate="VCC" pin="VCC"/>
+<pinref part="VCC_FPGA" gate="G$1" pin="VDD"/>
 <wire x1="73.66" y1="175.26" x2="73.66" y2="177.8" width="0.1524" layer="91"/>
 <pinref part="JP1" gate="A" pin="2"/>
 <wire x1="50.8" y1="154.94" x2="60.96" y2="154.94" width="0.1524" layer="91"/>
@@ -19746,7 +19891,7 @@ transistors</text>
 <pinref part="C18" gate="G$1" pin="1"/>
 <wire x1="25.4" y1="58.42" x2="25.4" y2="60.96" width="0.1524" layer="91"/>
 <junction x="30.48" y="60.96"/>
-<pinref part="VCC_FPGA3" gate="VCC" pin="VCC"/>
+<pinref part="VCC_FPGA3" gate="G$1" pin="VDD"/>
 <wire x1="25.4" y1="60.96" x2="25.4" y2="63.5" width="0.1524" layer="91"/>
 <junction x="25.4" y="60.96"/>
 </segment>
@@ -20015,7 +20160,7 @@ transistors</text>
 <segment>
 <wire x1="63.5" y1="149.86" x2="60.96" y2="149.86" width="0.1524" layer="91"/>
 <wire x1="60.96" y1="149.86" x2="60.96" y2="147.32" width="0.1524" layer="91"/>
-<pinref part="GND_FPGA" gate="GND" pin="GND"/>
+<pinref part="GND_FPGA" gate="G$1" pin="DGND"/>
 <wire x1="63.5" y1="149.86" x2="63.5" y2="170.18" width="0.1524" layer="91"/>
 <wire x1="60.96" y1="149.86" x2="50.8" y2="149.86" width="0.1524" layer="91"/>
 <junction x="60.96" y="149.86"/>
@@ -20025,7 +20170,7 @@ transistors</text>
 </segment>
 <segment>
 <wire x1="106.68" y1="152.4" x2="106.68" y2="154.94" width="0.1524" layer="91"/>
-<pinref part="GND_FPGA1" gate="GND" pin="GND"/>
+<pinref part="GND_FPGA1" gate="G$1" pin="DGND"/>
 <pinref part="R12" gate="G$1" pin="2"/>
 <wire x1="106.68" y1="154.94" x2="106.68" y2="160.02" width="0.1524" layer="91"/>
 <wire x1="104.14" y1="154.94" x2="106.68" y2="154.94" width="0.1524" layer="91"/>
@@ -20034,7 +20179,7 @@ transistors</text>
 </segment>
 <segment>
 <wire x1="106.68" y1="114.3" x2="106.68" y2="116.84" width="0.1524" layer="91"/>
-<pinref part="GND_FPGA2" gate="GND" pin="GND"/>
+<pinref part="GND_FPGA2" gate="G$1" pin="DGND"/>
 <pinref part="R11" gate="G$1" pin="2"/>
 <wire x1="106.68" y1="116.84" x2="106.68" y2="119.38" width="0.1524" layer="91"/>
 <wire x1="104.14" y1="116.84" x2="106.68" y2="116.84" width="0.1524" layer="91"/>
@@ -20042,7 +20187,7 @@ transistors</text>
 <pinref part="U$4" gate="G$2" pin="S"/>
 </segment>
 <segment>
-<pinref part="SUPPLY5" gate="GND" pin="GND"/>
+<pinref part="SUPPLY5" gate="G$1" pin="DGND"/>
 <pinref part="C18" gate="G$1" pin="2"/>
 <wire x1="25.4" y1="45.72" x2="25.4" y2="48.26" width="0.1524" layer="91"/>
 <pinref part="C17" gate="G$1" pin="2"/>
@@ -20065,7 +20210,7 @@ transistors</text>
 <wire x1="58.42" y1="58.42" x2="58.42" y2="60.96" width="0.1524" layer="91"/>
 <wire x1="58.42" y1="60.96" x2="50.8" y2="60.96" width="0.1524" layer="91"/>
 <junction x="50.8" y="60.96"/>
-<pinref part="AVCC_FPGA" gate="VCC" pin="VCC"/>
+<pinref part="AVCC_FPGA" gate="G$1" pin="VCC/2"/>
 <wire x1="58.42" y1="63.5" x2="58.42" y2="60.96" width="0.1524" layer="91"/>
 <junction x="58.42" y="60.96"/>
 </segment>
@@ -20073,13 +20218,13 @@ transistors</text>
 <pinref part="IC4" gate="G$1" pin="+VS"/>
 <wire x1="17.78" y1="91.44" x2="15.24" y2="91.44" width="0.1524" layer="91"/>
 <wire x1="15.24" y1="91.44" x2="15.24" y2="93.98" width="0.1524" layer="91"/>
-<pinref part="AVCC_FPGA2" gate="VCC" pin="VCC"/>
+<pinref part="AVCC_FPGA2" gate="G$1" pin="VCC/2"/>
 </segment>
 <segment>
 <pinref part="IC1" gate="G$1" pin="+VS"/>
 <wire x1="17.78" y1="124.46" x2="15.24" y2="124.46" width="0.1524" layer="91"/>
 <wire x1="15.24" y1="124.46" x2="15.24" y2="127" width="0.1524" layer="91"/>
-<pinref part="AVCC_FPGA1" gate="VCC" pin="VCC"/>
+<pinref part="AVCC_FPGA1" gate="G$1" pin="VCC/2"/>
 </segment>
 </net>
 <net name="AGND_FPGA" class="1">
@@ -20091,13 +20236,13 @@ transistors</text>
 <wire x1="50.8" y1="48.26" x2="50.8" y2="50.8" width="0.1524" layer="91"/>
 <wire x1="58.42" y1="48.26" x2="58.42" y2="45.72" width="0.1524" layer="91"/>
 <junction x="58.42" y="48.26"/>
-<pinref part="AGND_FPGA3" gate="GND" pin="GND"/>
+<pinref part="AGND_FPGA3" gate="VR1" pin="AGND"/>
 <pinref part="BEAD" gate="G$1" pin="2"/>
 <wire x1="45.72" y1="48.26" x2="50.8" y2="48.26" width="0.1524" layer="91"/>
 <junction x="50.8" y="48.26"/>
 </segment>
 <segment>
-<pinref part="AGND_FPGA2" gate="GND" pin="GND"/>
+<pinref part="AGND_FPGA2" gate="VR1" pin="AGND"/>
 <pinref part="IC4" gate="G$1" pin="GND"/>
 <wire x1="27.94" y1="78.74" x2="27.94" y2="81.28" width="0.1524" layer="91"/>
 <pinref part="C13" gate="G$1" pin="2"/>
@@ -20106,7 +20251,7 @@ transistors</text>
 <junction x="27.94" y="81.28"/>
 </segment>
 <segment>
-<pinref part="AGND_FPGA1" gate="GND" pin="GND"/>
+<pinref part="AGND_FPGA1" gate="VR1" pin="AGND"/>
 <pinref part="IC1" gate="G$1" pin="GND"/>
 <wire x1="27.94" y1="111.76" x2="27.94" y2="114.3" width="0.1524" layer="91"/>
 <pinref part="C14" gate="G$1" pin="2"/>
@@ -20135,8 +20280,46 @@ transistors</text>
 </sheet>
 </sheets>
 <errors>
+<approved hash="102,1,106.68,152.4,DGND,GND_FPGA,,,,"/>
+<approved hash="102,1,106.68,114.3,DGND,GND_FPGA,,,,"/>
+<approved hash="102,1,60.96,147.32,DGND,GND_FPGA,,,,"/>
+<approved hash="102,1,198.12,162.56,VCC,VCC_12,,,,"/>
+<approved hash="102,1,81.28,241.3,+18V,VCC_HI,,,,"/>
+<approved hash="102,1,81.28,226.06,+15V,VCC_MID,,,,"/>
+<approved hash="102,1,190.5,243.84,+12V,VCC_12,,,,"/>
+<approved hash="102,1,157.48,248.92,+18V,VCC_HI,,,,"/>
+<approved hash="102,1,256.54,172.72,+18V,VCC_HI,,,,"/>
+<approved hash="102,1,314.96,157.48,+15V,VCC_MID,,,,"/>
+<approved hash="102,1,198.12,187.96,+12V,VCC_12,,,,"/>
+<approved hash="102,1,248.92,243.84,+3V3,VCC_3.3,,,,"/>
+<approved hash="102,1,208.28,243.84,VCC,VCC_12,,,,"/>
+<approved hash="102,1,154.94,193.04,+3V3,VCC_3.3,,,,"/>
+<approved hash="102,1,73.66,177.8,VDD,VCC_FPGA,,,,"/>
+<approved hash="102,1,256.54,195.58,+15V,VCC_MID,,,,"/>
+<approved hash="102,1,142.24,248.92,+15V,VCC_MID,,,,"/>
+<approved hash="102,1,27.94,78.74,AGND,AGND_FPGA,,,,"/>
+<approved hash="102,1,27.94,111.76,AGND,AGND_FPGA,,,,"/>
+<approved hash="102,1,15.24,127,VCC/2,AVCC_FPGA,,,,"/>
+<approved hash="102,1,15.24,93.98,VCC/2,AVCC_FPGA,,,,"/>
+<approved hash="102,1,25.4,45.72,DGND,GND_FPGA,,,,"/>
+<approved hash="102,1,25.4,63.5,VDD,VCC_FPGA,,,,"/>
+<approved hash="102,1,58.42,63.5,VCC/2,AVCC_FPGA,,,,"/>
+<approved hash="102,1,58.42,45.72,AGND,AGND_FPGA,,,,"/>
 <approved hash="104,1,27.94,116.84,IC1,GND,AGND_FPGA,,,"/>
 <approved hash="104,1,27.94,83.82,IC4,GND,AGND_FPGA,,,"/>
+<approved hash="113,1,194.206,131.976,FRAME1,,,,,"/>
+<approved hash="113,1,184.283,229.87,C2,,,,,"/>
+<approved hash="113,1,213.36,175.747,D1,,,,,"/>
+<approved hash="113,1,289.073,124.46,D2,,,,,"/>
+<approved hash="113,1,289.073,149.86,D3,,,,,"/>
+<approved hash="113,1,90.3027,229.87,C9,,,,,"/>
+<approved hash="113,1,91.0123,217.17,C10,,,,,"/>
+<approved hash="113,1,242.703,229.87,C3,,,,,"/>
+<approved hash="113,1,149.86,242.992,SJ1,,,,,"/>
+<approved hash="113,1,46.9477,153.801,JP1,,,,,"/>
+<approved hash="113,1,55.7655,85.09,C13,,,,,"/>
+<approved hash="113,1,55.7655,118.11,C14,,,,,"/>
+<approved hash="113,1,305.648,182.88,SJ2,,,,,"/>
 </errors>
 </schematic>
 </drawing>
