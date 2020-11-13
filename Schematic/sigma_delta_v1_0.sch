@@ -19546,12 +19546,18 @@ transistors</text>
 <instance part="C15" gate="G$1" x="50.8" y="55.88"/>
 <instance part="C16" gate="G$1" x="58.42" y="55.88"/>
 <instance part="C17" gate="G$1" x="30.48" y="55.88"/>
-<instance part="C18" gate="G$1" x="25.4" y="55.88"/>
+<instance part="C18" gate="G$1" x="25.4" y="55.88" smashed="yes">
+<attribute name="NAME" x="19.304" y="56.261" size="1.778" layer="95"/>
+<attribute name="VALUE" x="19.304" y="53.721" size="1.778" layer="96"/>
+</instance>
 <instance part="SUPPLY5" gate="G$1" x="25.4" y="43.18"/>
 <instance part="VCC_FPGA3" gate="G$1" x="25.4" y="66.04"/>
 <instance part="AVCC_FPGA" gate="G$1" x="58.42" y="66.04"/>
 <instance part="AGND_FPGA3" gate="VR1" x="58.42" y="43.18"/>
-<instance part="BEAD" gate="G$1" x="40.64" y="48.26" rot="R90"/>
+<instance part="BEAD" gate="G$1" x="40.64" y="48.26" smashed="yes" rot="R90">
+<attribute name="NAME" x="52.07" y="44.2214" size="1.778" layer="95" rot="R180"/>
+<attribute name="VALUE" x="52.07" y="46.482" size="1.778" layer="96" rot="R180"/>
+</instance>
 <instance part="SJ2" gate="G$1" x="304.8" y="182.88" rot="R180"/>
 </instances>
 <busses>
